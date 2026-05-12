@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Политика обработки персональных данных ООО «Аудит Плюс». Информация в соответствии с 152-ФЗ.">
+  <title>Политика конфиденциальности — Аудит Плюс</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .breadcrumbs {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      padding: 16px 0;
+    }
+    .breadcrumbs a { color: var(--primary); text-decoration: none; }
+    .breadcrumbs a:hover { text-decoration: underline; }
+    .breadcrumbs span[aria-current] { color: var(--text-muted); }
+    .breadcrumbs .sep { margin: 0 8px; color: var(--text-muted); }
+
+    .page-hero {
+      background: var(--bg-light);
+      padding: 48px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero h1 {
+      font-size: var(--text-4xl);
+      font-weight: 700;
+      margin-top: 8px;
+      max-width: 860px;
+    }
+    .page-hero .meta {
+      margin-top: 12px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+    }
+    .page-hero .meta span { display: inline-flex; gap: 6px; align-items: center; }
+    @media (max-width: 768px) {
+      .page-hero h1 { font-size: var(--text-3xl); }
+    }
+
+    .policy-layout {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .toc {
+      background: var(--bg-blue);
+      border: 1px solid #DBEAFE;
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 40px;
+    }
+    .toc h2 {
+      font-size: var(--text-xl);
+      margin-bottom: 16px;
+      color: var(--graphite);
+    }
+    .toc ol {
+      padding-left: 24px;
+      color: var(--text-primary);
+    }
+    .toc li { margin-bottom: 8px; line-height: 1.5; }
+    .toc a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    .policy-section {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      margin-bottom: 24px;
+      scroll-margin-top: 100px;
+    }
+    .policy-section h2 {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--graphite);
+      margin-bottom: 16px;
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+    }
+    .policy-section h2 .num {
+      font-family: var(--font-heading);
+      color: var(--accent-gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .policy-section p,
+    .policy-section li {
+      font-size: var(--text-base);
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+    .policy-section p { margin-bottom: 12px; }
+    .policy-section ul, .policy-section ol {
+      padding-left: 24px;
+      margin-bottom: 12px;
+    }
+    .policy-section li { margin-bottom: 6px; }
+    .policy-section a { color: var(--primary); }
+
+    .doc-footer {
+      margin-top: 40px;
+      padding: 20px 24px;
+      background: var(--bg-light);
+      border-left: 4px solid var(--accent-gold);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .doc-footer strong { color: var(--graphite); }
+
+    @media (max-width: 640px) {
+      .policy-section { padding: 24px 20px; }
+      .toc { padding: 20px 22px; }
+    }
+
+    /* Header */
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 24px;
+    }
+    .logo {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: var(--text-xl);
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .logo span { color: var(--accent-gold); }
+    .main-nav { display: flex; gap: 28px; }
+    .main-nav a {
+      color: var(--graphite);
+      text-decoration: none;
+      font-size: var(--text-base);
+      font-weight: 500;
+      transition: color var(--transition-fast);
+    }
+    .main-nav a:hover, .main-nav a.active { color: var(--primary); }
+    .header-cta { display: flex; gap: 16px; align-items: center; }
+    .header-phone {
+      font-weight: 600;
+      color: var(--graphite);
+      text-decoration: none;
+      font-size: var(--text-base);
+    }
+    .header-phone:hover { color: var(--primary); }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--graphite);
+      padding: 8px;
+    }
+    @media (max-width: 1024px) {
+      .main-nav, .header-phone { display: none; }
+      .mobile-toggle { display: inline-flex; }
+    }
+    @media (max-width: 640px) {
+      .header-cta .btn { display: none; }
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--graphite);
+      color: #D1D5DB;
+      padding: 64px 0 24px;
+      margin-top: 96px;
+    }
+    .site-footer h4 {
+      font-family: var(--font-body);
+      color: white;
+      font-size: var(--text-base);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .site-footer ul { list-style: none; }
+    .site-footer li { margin-bottom: 8px; }
+    .site-footer a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-size: var(--text-sm);
+      transition: color var(--transition-fast);
+    }
+    .site-footer a:hover { color: var(--accent-gold-light); }
+    .site-footer .footer-logo {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      color: white;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .site-footer .footer-logo span { color: var(--accent-gold-light); }
+    .footer-tagline {
+      font-size: var(--text-sm);
+      color: #9CA3AF;
+      max-width: 280px;
+      line-height: 1.6;
+    }
+    .footer-bottom {
+      border-top: 1px solid #374151;
+      margin-top: 48px;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: var(--text-sm);
+      color: #9CA3AF;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Перейти к&nbsp;основному содержанию</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="nav-wrap">
+        <a href="index.html" class="logo">АУДИТ <span>ПЛЮС</span></a>
+        <nav class="main-nav" aria-label="Главная навигация">
+          <a href="index.html">Главная</a>
+          <a href="index.html#about">О&nbsp;компании</a>
+          <a href="index.html#services">Услуги</a>
+          <a href="blog.html">Блог</a>
+          <a href="contacts.html">Контакты</a>
+        </nav>
+        <div class="header-cta">
+          <a href="tel:+79832689858" class="header-phone">+7 (983) 268-98-58</a>
+          <a href="contacts.html#consult" class="btn btn-primary btn-sm">Консультация</a>
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Открыть меню" aria-controls="mobileMenu" aria-expanded="false">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Мобильное меню">
+    <a href="index.html">Главная</a>
+    <a href="index.html#about">О&nbsp;компании</a>
+    <a href="index.html#services">Услуги</a>
+    <a href="blog.html">Блог</a>
+    <a href="contacts.html">Контакты</a>
+    <a href="tel:+79832689858">+7 (983) 268-98-58</a>
+  </div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="index.html">Главная</a>
+          <span class="sep">→</span>
+          <span aria-current="page">Политика конфиденциальности</span>
+        </nav>
+        <h1>Политика обработки персональных данных</h1>
+        <div class="meta">
+          <span><i data-lucide="shield-check" aria-hidden="true"></i> 152-ФЗ «О&nbsp;персональных данных»</span>
+          <span><i data-lucide="calendar" aria-hidden="true"></i> Действует с&nbsp;01.01.2026</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm">
+      <div class="container">
+        <div class="policy-layout">
+
+          <!-- TOC -->
+          <nav class="toc" aria-label="Содержание">
+            <h2>Содержание</h2>
+            <ol>
+              <li><a href="#s1">Общие положения</a></li>
+              <li><a href="#s2">Цели обработки персональных данных</a></li>
+              <li><a href="#s3">Правовые основания обработки</a></li>
+              <li><a href="#s4">Объём и&nbsp;категории персональных данных</a></li>
+              <li><a href="#s5">Порядок обработки персональных данных</a></li>
+              <li><a href="#s6">Защита персональных данных</a></li>
+              <li><a href="#s7">Права субъекта персональных данных</a></li>
+              <li><a href="#s8">Заключительные положения</a></li>
+            </ol>
+          </nav>
+
+          <!-- Section 1 -->
+          <article class="policy-section" id="s1">
+            <h2><span class="num">1.</span> Общие положения</h2>
+            <p>Настоящая Политика обработки персональных данных (далее — Политика) разработана в&nbsp;соответствии с&nbsp;Федеральным законом от&nbsp;27.07.2006 № 152-ФЗ «О&nbsp;персональных данных».</p>
+            <p>Оператором персональных данных является <strong>ООО «Аудит Плюс»</strong> (ИНН 2463034272, ОГРН 1022402148735), юридический адрес: г. Красноярск, ул. Конституции СССР, д.7, оф.66 (далее — Оператор).</p>
+            <p>Политика распространяется на&nbsp;все&nbsp;процессы сбора, хранения, использования и&nbsp;иной обработки персональных данных, осуществляемые Оператором как&nbsp;с&nbsp;использованием средств автоматизации, так и&nbsp;без&nbsp;них.</p>
+          </article>
+
+          <!-- Section 2 -->
+          <article class="policy-section" id="s2">
+            <h2><span class="num">2.</span> Цели обработки персональных данных</h2>
+            <p>Оператор обрабатывает персональные данные субъектов в&nbsp;следующих целях:</p>
+            <ul>
+              <li>заключение, исполнение и&nbsp;прекращение гражданско-правовых договоров с&nbsp;клиентами, контрагентами и&nbsp;партнёрами;</li>
+              <li>оказание аудиторских, бухгалтерских, налоговых и&nbsp;консультационных услуг;</li>
+              <li>обеспечение обратной связи: ответы на&nbsp;запросы, направленные через формы сайта, по&nbsp;email, телефону и&nbsp;в&nbsp;мессенджерах;</li>
+              <li>информирование о&nbsp;новых услугах, акциях и&nbsp;материалах (только при&nbsp;наличии отдельного согласия субъекта);</li>
+              <li>соблюдение требований законодательства Российской Федерации.</li>
+            </ul>
+          </article>
+
+          <!-- Section 3 -->
+          <article class="policy-section" id="s3">
+            <h2><span class="num">3.</span> Правовые основания обработки</h2>
+            <p>Обработка персональных данных осуществляется на&nbsp;следующих правовых основаниях:</p>
+            <ul>
+              <li>Федеральный закон от&nbsp;27.07.2006 № 152-ФЗ «О&nbsp;персональных данных»;</li>
+              <li>согласие субъекта персональных данных на&nbsp;обработку его персональных данных;</li>
+              <li>исполнение договора, стороной которого является субъект персональных данных, либо договора, заключаемого по&nbsp;его инициативе;</li>
+              <li>требования Налогового кодекса РФ, Федерального закона «Об аудиторской деятельности» и&nbsp;иных нормативных актов.</li>
+            </ul>
+          </article>
+
+          <!-- Section 4 -->
+          <article class="policy-section" id="s4">
+            <h2><span class="num">4.</span> Объём и&nbsp;категории персональных данных</h2>
+            <p>Оператор обрабатывает следующие категории персональных данных:</p>
+            <ul>
+              <li>фамилия, имя, отчество;</li>
+              <li>контактный телефон;</li>
+              <li>адрес электронной почты;</li>
+              <li>наименование организации, должность, ИНН/ОГРН (для&nbsp;представителей юридических лиц);</li>
+              <li>иные данные, добровольно предоставленные субъектом при&nbsp;обращении к&nbsp;Оператору.</li>
+            </ul>
+            <p>Специальные категории персональных данных и&nbsp;биометрические данные Оператором не&nbsp;обрабатываются.</p>
+          </article>
+
+          <!-- Section 5 -->
+          <article class="policy-section" id="s5">
+            <h2><span class="num">5.</span> Порядок обработки персональных данных</h2>
+            <p>Обработка персональных данных включает следующие действия:</p>
+            <ol>
+              <li><strong>Сбор:</strong> через формы сайта, по&nbsp;email, телефону, при&nbsp;личном обращении или при&nbsp;заключении договора.</li>
+              <li><strong>Хранение:</strong> на&nbsp;защищённых серверах Оператора на&nbsp;территории Российской Федерации.</li>
+              <li><strong>Использование:</strong> исключительно для&nbsp;целей, указанных в&nbsp;разделе 2 настоящей Политики.</li>
+              <li><strong>Передача третьим лицам:</strong> не&nbsp;осуществляется, за&nbsp;исключением случаев, прямо предусмотренных законодательством РФ.</li>
+              <li><strong>Уничтожение:</strong> по&nbsp;достижении целей обработки или по&nbsp;требованию субъекта, в&nbsp;течение 30 дней.</li>
+            </ol>
+          </article>
+
+          <!-- Section 6 -->
+          <article class="policy-section" id="s6">
+            <h2><span class="num">6.</span> Защита персональных данных</h2>
+            <p>Оператор принимает необходимые организационные и&nbsp;технические меры для&nbsp;защиты персональных данных от&nbsp;неправомерного или случайного доступа, уничтожения, изменения, блокирования, копирования, распространения, а&nbsp;также от&nbsp;иных неправомерных действий.</p>
+            <ul>
+              <li>назначение ответственного за&nbsp;организацию обработки персональных данных;</li>
+              <li>ограничение доступа к&nbsp;персональным данным сотрудниками, которым он необходим для&nbsp;выполнения служебных обязанностей;</li>
+              <li>применение средств антивирусной защиты и&nbsp;шифрования каналов передачи данных;</li>
+              <li>регулярное резервное копирование и&nbsp;контроль целостности данных;</li>
+              <li>обучение сотрудников требованиям законодательства в&nbsp;области защиты персональных данных.</li>
+            </ul>
+          </article>
+
+          <!-- Section 7 -->
+          <article class="policy-section" id="s7">
+            <h2><span class="num">7.</span> Права субъекта персональных данных</h2>
+            <p>Субъект персональных данных имеет право:</p>
+            <ul>
+              <li>получать информацию о&nbsp;факте обработки его персональных данных и&nbsp;о&nbsp;её содержании;</li>
+              <li>требовать уточнения, изменения или дополнения своих персональных данных;</li>
+              <li>требовать блокирования или уничтожения персональных данных, если они неполные, устаревшие, недостоверные или незаконно полученные;</li>
+              <li>отозвать ранее данное согласие на&nbsp;обработку персональных данных;</li>
+              <li>обжаловать действия Оператора в&nbsp;Роскомнадзор или в&nbsp;судебном порядке.</li>
+            </ul>
+            <p>Для&nbsp;реализации указанных прав обращайтесь по&nbsp;адресу: <a href="mailto:info@auditplyus.ru">info@auditplyus.ru</a>. Срок ответа на&nbsp;обращение — не&nbsp;более 30 дней.</p>
+          </article>
+
+          <!-- Section 8 -->
+          <article class="policy-section" id="s8">
+            <h2><span class="num">8.</span> Заключительные положения</h2>
+            <p>Настоящая Политика вступает в&nbsp;силу с&nbsp;момента её утверждения и&nbsp;действует бессрочно до&nbsp;её отмены или принятия новой редакции.</p>
+            <p>Оператор имеет право вносить изменения в&nbsp;Политику. Актуальная редакция всегда доступна на&nbsp;сайте по&nbsp;адресу <a href="https://auditplyus.ru/privacy.html">auditplyus.ru/privacy.html</a>.</p>
+            <p>Политика пересматривается не&nbsp;реже одного раза в&nbsp;год. Контроль за&nbsp;актуальностью документа возложен на&nbsp;ответственного за&nbsp;организацию обработки персональных данных.</p>
+
+            <div class="doc-footer">
+              <strong>Дата утверждения:</strong> 01.01.2026<br>
+              <strong>Оператор:</strong> ООО «Аудит Плюс», ИНН 2463034272<br>
+              <strong>Контакт по&nbsp;вопросам обработки ПДн:</strong> <a href="mailto:info@auditplyus.ru">info@auditplyus.ru</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="grid-4">
+        <div>
+          <a href="index.html" class="footer-logo">АУДИТ <span>ПЛЮС</span></a>
+          <p class="footer-tagline">Профессиональный аудит, бухгалтерия и&nbsp;налоговое консультирование в&nbsp;Красноярске с&nbsp;1995 года.</p>
+        </div>
+        <div>
+          <h4>Услуги</h4>
+          <ul>
+            <li><a href="index.html#services">Обязательный аудит</a></li>
+            <li><a href="index.html#services">Инициативный аудит</a></li>
+            <li><a href="index.html#services">Бухгалтерия</a></li>
+            <li><a href="index.html#services">Налоги</a></li>
+            <li><a href="index.html#services">Юридические услуги</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="index.html#about">О&nbsp;нас</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="tel:+79832689858">+7 (983) 268-98-58</a></li>
+            <li><a href="mailto:info@auditplyus.ru">info@auditplyus.ru</a></li>
+            <li>г. Красноярск,<br>ул. Конституции СССР, 7, оф.66</li>
+            <li>Пн–Пт 9:00–18:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 1995–2026 ООО «Аудит Плюс». Все&nbsp;права защищены.</div>
+        <div>ИНН 2463034272 · Член СРО ААС</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Уведомление об использовании cookie">
+    <div style="flex:1; min-width: 260px;">
+      Мы используем cookie, чтобы сайт работал лучше. Продолжая использовать сайт, вы соглашаетесь с
+      <a href="privacy.html">политикой конфиденциальности</a>.
+    </div>
+    <button class="btn btn-gold btn-sm" id="cookieAccept">Принять</button>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Наверх">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons();
+
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 8);
+      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileToggle?.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', open);
+      mobileToggle.innerHTML = open ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
+      lucide.createIcons();
+    });
+
+    const banner = document.getElementById('cookieBanner');
+    if (localStorage.getItem('cookieAccepted') === '1') banner.style.display = 'none';
+    document.getElementById('cookieAccept').addEventListener('click', () => {
+      localStorage.setItem('cookieAccepted', '1');
+      banner.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

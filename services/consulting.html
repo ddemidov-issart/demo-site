@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Консалтинговые услуги для&nbsp;бизнеса — Аудит Плюс</title>
+  <meta name="description" content="Налоговый консалтинг, управленческий учёт, автоматизация, восстановление учёта и инвестпроекты. Разовые услуги от 800 ₽." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .breadcrumbs { font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: 24px; }
+    .breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .breadcrumbs li { display: inline-flex; align-items: center; gap: 8px; }
+    .breadcrumbs li + li::before { content: '/'; color: var(--text-muted); }
+    .breadcrumbs a { color: var(--primary); text-decoration: none; }
+    .breadcrumbs a:hover { text-decoration: underline; }
+    .breadcrumbs [aria-current="page"] { color: var(--text-muted); }
+
+    .hero-compact { background: var(--bg-blue); padding: 56px 0 72px; }
+    .hero-compact h1 { font-size: var(--text-4xl); font-weight: 700; margin-bottom: 16px; max-width: 820px; }
+    .hero-compact .lead { font-size: var(--text-lg); color: var(--text-secondary); max-width: 720px; }
+    @media (max-width: 768px) { .hero-compact h1 { font-size: var(--text-3xl); } }
+
+    .direction-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all var(--transition-base);
+      display: flex; gap: 20px;
+    }
+    .direction-card:hover { box-shadow: var(--shadow-lg); border-color: var(--primary-light); transform: translateY(-2px); }
+    .direction-icon {
+      flex-shrink: 0;
+      width: 56px; height: 56px;
+      background: var(--bg-blue); color: var(--primary);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .direction-card h3 { font-size: var(--text-lg); font-weight: 700; font-family: var(--font-body); margin-bottom: 8px; }
+    .direction-card p { color: var(--text-secondary); font-size: var(--text-sm); margin: 0; }
+
+    .process-track {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; counter-reset: step;
+      position: relative;
+    }
+    .process-step {
+      position: relative; padding: 32px 28px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .process-step::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      font-family: var(--font-heading);
+      font-size: var(--text-4xl);
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1;
+      display: block; margin-bottom: 12px;
+    }
+    .process-step h3 { font-family: var(--font-body); font-size: var(--text-xl); font-weight: 700; margin-bottom: 8px; }
+    .process-step p { color: var(--text-secondary); font-size: var(--text-sm); }
+    @media (max-width: 768px) { .process-track { grid-template-columns: 1fr; } }
+
+    .price-list {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .price-row {
+      display: grid; grid-template-columns: 1fr auto auto;
+      gap: 24px; align-items: center;
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition-fast);
+    }
+    .price-row:last-child { border-bottom: none; }
+    .price-row:hover { background: var(--bg-light); }
+    .price-row h3 { font-family: var(--font-body); font-size: var(--text-base); font-weight: 600; margin-bottom: 2px; }
+    .price-row p { color: var(--text-muted); font-size: var(--text-sm); margin: 0; }
+    .price-row .price-tag {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .price-row .price-tag span { font-size: var(--text-sm); color: var(--text-muted); font-family: var(--font-body); font-weight: 400; }
+    .price-row .order-link {
+      color: var(--primary); font-weight: 600; font-size: var(--text-sm);
+      text-decoration: none; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .price-row .order-link:hover { color: var(--primary-dark); }
+    @media (max-width: 640px) {
+      .price-row { grid-template-columns: 1fr; gap: 8px; padding: 20px; }
+      .price-row .price-tag { font-size: var(--text-lg); }
+    }
+
+    .cta-block {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--graphite) 100%);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 64px 48px;
+      display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+    }
+    .cta-block h2 { color: white; font-size: var(--text-3xl); margin-bottom: 12px; }
+    .cta-block p { color: rgba(255,255,255,0.85); max-width: 520px; }
+    @media (max-width: 768px) { .cta-block { grid-template-columns: 1fr; padding: 48px 24px; text-align: center; } .cta-block p { margin: 0 auto; } }
+
+    /* Header */
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 16px 0; }
+    .logo { font-family: var(--font-heading); font-weight: 700; font-size: var(--text-2xl); color: var(--primary); text-decoration: none; letter-spacing: 0.5px; }
+    .logo span { color: var(--accent-gold); }
+    .main-nav { display: flex; gap: 28px; }
+    .main-nav a { color: var(--graphite-light); text-decoration: none; font-weight: 500; font-size: var(--text-sm); transition: color var(--transition-fast); }
+    .main-nav a:hover, .main-nav a.active { color: var(--primary); }
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+    .header-phone { color: var(--graphite); text-decoration: none; font-weight: 600; font-size: var(--text-sm); display: inline-flex; align-items: center; gap: 6px; }
+    .header-phone:hover { color: var(--primary); }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--graphite); }
+    @media (max-width: 900px) { .main-nav, .header-phone { display: none; } .menu-toggle { display: inline-flex; } }
+
+    /* Footer */
+    .site-footer { background: var(--graphite); color: rgba(255,255,255,0.85); padding: 72px 0 24px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .site-footer h4 { color: white; font-family: var(--font-body); font-size: var(--text-base); font-weight: 600; margin-bottom: 16px; }
+    .site-footer ul { list-style: none; display: grid; gap: 10px; }
+    .site-footer a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: var(--text-sm); }
+    .site-footer a:hover { color: white; }
+    .site-footer .logo { color: white; display: inline-block; margin-bottom: 12px; }
+    .site-footer .footer-about p { font-size: var(--text-sm); color: rgba(255,255,255,0.7); line-height: 1.7; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; font-size: var(--text-sm); color: rgba(255,255,255,0.6); flex-wrap: wrap; }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    .icon { width: 20px; height: 20px; stroke-width: 2; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Главная", "item": "../index.html" },
+      { "@type": "ListItem", "position": 2, "name": "Услуги", "item": "../index.html#services" },
+      { "@type": "ListItem", "position": 3, "name": "Консалтинг" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Перейти к&nbsp;содержимому</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">АУДИТ <span>ПЛЮС</span></a>
+      <nav class="main-nav" aria-label="Главное меню">
+        <a href="../index.html#services" class="active">Услуги</a>
+        <a href="../tariffs.html">Тарифы</a>
+        <a href="../index.html#about">О&nbsp;компании</a>
+        <a href="../index.html#testimonials">Отзывы</a>
+        <a href="../index.html#contacts">Контакты</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+78001234567" class="header-phone"><i data-lucide="phone" class="icon"></i>8 (800) 123-45-67</a>
+        <a href="../index.html#contacts" class="btn btn-primary btn-sm">Консультация</a>
+        <button class="menu-toggle" aria-label="Открыть меню" id="menuToggle"><i data-lucide="menu" class="icon"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="../index.html#services">Услуги</a>
+    <a href="../tariffs.html">Тарифы</a>
+    <a href="../index.html#about">О&nbsp;компании</a>
+    <a href="../index.html#testimonials">Отзывы</a>
+    <a href="../index.html#contacts">Контакты</a>
+    <a href="tel:+78001234567">8 (800) 123-45-67</a>
+  </div>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero-compact">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <ol>
+            <li><a href="../index.html">Главная</a></li>
+            <li><a href="../index.html#services">Услуги</a></li>
+            <li aria-current="page">Консалтинг</li>
+          </ol>
+        </nav>
+        <h1>Консалтинговые услуги для&nbsp;бизнеса</h1>
+        <p class="lead">Налоги, управленческий учёт, автоматизация и&nbsp;инвестпроекты — экспертные решения для&nbsp;собственников и&nbsp;финансовых директоров. Опыт 30+ лет в&nbsp;каждой задаче.</p>
+      </div>
+    </section>
+
+    <!-- Направления -->
+    <section class="section-sm">
+      <div class="container">
+        <header style="margin-bottom: 40px; max-width: 720px;">
+          <h2 class="section-title">Направления консалтинга</h2>
+          <p class="section-subtitle">Закрываем шесть базовых задач — от&nbsp;точечной налоговой консультации до&nbsp;запуска инвестиционного проекта под&nbsp;ключ.</p>
+        </header>
+        <div class="grid-2">
+          <article class="direction-card">
+            <div class="direction-icon"><i data-lucide="receipt" class="icon"></i></div>
+            <div>
+              <h3>Налоговое консультирование</h3>
+              <p>Разбор спорных ситуаций, ответы на&nbsp;требования ФНС, оценка налоговых последствий сделок, защита позиции в&nbsp;досудебных и&nbsp;судебных спорах.</p>
+            </div>
+          </article>
+          <article class="direction-card">
+            <div class="direction-icon"><i data-lucide="line-chart" class="icon"></i></div>
+            <div>
+              <h3>Управленческий учёт</h3>
+              <p>Постановка управленки с&nbsp;нуля: единая методология, формы P&L и&nbsp;Cash Flow, бюджетирование, KPI-дашборды для&nbsp;собственника.</p>
+            </div>
+          </article>
+          <article class="direction-card">
+            <div class="direction-icon"><i data-lucide="settings-2" class="icon"></i></div>
+            <div>
+              <h3>Автоматизация процессов</h3>
+              <p>Внедрение 1С:ERP и&nbsp;1С:Бухгалтерии, интеграция с&nbsp;CRM и&nbsp;банк-клиентом, настройка ЭДО, обучение сотрудников и&nbsp;поддержка после запуска.</p>
+            </div>
+          </article>
+          <article class="direction-card">
+            <div class="direction-icon"><i data-lucide="rocket" class="icon"></i></div>
+            <div>
+              <h3>Разработка инвестпроектов</h3>
+              <p>Финансовая модель, бизнес-план, расчёт NPV/IRR, подготовка пакета документов для&nbsp;банка или инвестора, защита проекта на&nbsp;кредитном комитете.</p>
+            </div>
+          </article>
+          <article class="direction-card">
+            <div class="direction-icon"><i data-lucide="undo-2" class="icon"></i></div>
+            <div>
+              <h3>Восстановление учёта</h3>
+              <p>Реконструкция бухгалтерии за&nbsp;прошлые периоды, корректировка отчётности, подача уточнённых деклараций, минимизация штрафов.</p>
+            </div>
+          </article>
+          <article class="direction-card">
+            <div class="direction-icon"><i data-lucide="scale" class="icon"></i></div>
+            <div>
+              <h3>Оптимизация налогообложения</h3>
+              <p>Законный пересмотр налоговой нагрузки: выбор режима, дробление функций по&nbsp;группе, льготы IT и&nbsp;резидентство СЭЗ, дивидендные стратегии.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Как это работает -->
+    <section class="section-sm" style="background: var(--bg-light);">
+      <div class="container">
+        <header style="margin-bottom: 56px; max-width: 720px;">
+          <h2 class="section-title">Как&nbsp;это&nbsp;работает</h2>
+          <p class="section-subtitle">Три этапа от&nbsp;первичного запроса до&nbsp;запуска решения в&nbsp;работу — каждый этап с&nbsp;измеримым результатом.</p>
+        </header>
+        <div class="process-track">
+          <article class="process-step">
+            <h3>Анализ</h3>
+            <p>Изучаем учёт, документы, договоры и&nbsp;текущие процессы. Формируем карту рисков и&nbsp;зон роста. Срок — от&nbsp;3 рабочих дней.</p>
+          </article>
+          <article class="process-step">
+            <h3>Решение</h3>
+            <p>Готовим письменное заключение с&nbsp;вариантами, расчётом эффекта и&nbsp;пошаговым планом. Защищаем рекомендации очно.</p>
+          </article>
+          <article class="process-step">
+            <h3>Внедрение</h3>
+            <p>Сопровождаем реализацию: правки в&nbsp;учёте, документообороте, ИТ-системах. Контролируем результат на&nbsp;горизонте до&nbsp;6 месяцев.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Разовые услуги -->
+    <section class="section-sm">
+      <div class="container">
+        <header style="margin-bottom: 40px; max-width: 720px;">
+          <h2 class="section-title">Разовые услуги</h2>
+          <p class="section-subtitle">Конкретные задачи с&nbsp;фиксированной ценой — без&nbsp;долгих договоров и&nbsp;абонентки. Оплата по&nbsp;факту выполнения.</p>
+        </header>
+        <div class="price-list">
+          <div class="price-row">
+            <div>
+              <h3>Устная консультация бухгалтера</h3>
+              <p>До&nbsp;30 минут по&nbsp;одной теме · Zoom или офис</p>
+            </div>
+            <div class="price-tag">800 ₽<span> / мин</span></div>
+            <a href="../index.html#contacts" class="order-link">Заказать <i data-lucide="arrow-right" class="icon" style="width:14px;height:14px;"></i></a>
+          </div>
+          <div class="price-row">
+            <div>
+              <h3>Письменная консультация по&nbsp;налогам</h3>
+              <p>Развёрнутый ответ со&nbsp;ссылками на&nbsp;НК РФ и&nbsp;судебную практику · 3 рабочих дня</p>
+            </div>
+            <div class="price-tag">от&nbsp;5 000 ₽</div>
+            <a href="../index.html#contacts" class="order-link">Заказать <i data-lucide="arrow-right" class="icon" style="width:14px;height:14px;"></i></a>
+          </div>
+          <div class="price-row">
+            <div>
+              <h3>Подготовка ответа на&nbsp;требование ФНС</h3>
+              <p>Анализ требования, формирование пояснений и&nbsp;пакета документов</p>
+            </div>
+            <div class="price-tag">от&nbsp;8 000 ₽</div>
+            <a href="../index.html#contacts" class="order-link">Заказать <i data-lucide="arrow-right" class="icon" style="width:14px;height:14px;"></i></a>
+          </div>
+          <div class="price-row">
+            <div>
+              <h3>Экспресс-диагностика бухучёта</h3>
+              <p>Проверка одного квартала, выявление ошибок и&nbsp;рисков · отчёт + рекомендации</p>
+            </div>
+            <div class="price-tag">от&nbsp;15 000 ₽</div>
+            <a href="../index.html#contacts" class="order-link">Заказать <i data-lucide="arrow-right" class="icon" style="width:14px;height:14px;"></i></a>
+          </div>
+          <div class="price-row">
+            <div>
+              <h3>Восстановление учёта за&nbsp;квартал</h3>
+              <p>Реконструкция первички, проводок и&nbsp;отчётности по&nbsp;одному юрлицу</p>
+            </div>
+            <div class="price-tag">от&nbsp;20 000 ₽</div>
+            <a href="../index.html#contacts" class="order-link">Заказать <i data-lucide="arrow-right" class="icon" style="width:14px;height:14px;"></i></a>
+          </div>
+          <div class="price-row">
+            <div>
+              <h3>Финансовая модель проекта</h3>
+              <p>Excel-модель с&nbsp;3 сценариями, NPV / IRR / срок окупаемости, защита перед инвестором</p>
+            </div>
+            <div class="price-tag">от&nbsp;30 000 ₽</div>
+            <a href="../index.html#contacts" class="order-link">Заказать <i data-lucide="arrow-right" class="icon" style="width:14px;height:14px;"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-sm">
+      <div class="container">
+        <div class="cta-block">
+          <div>
+            <h2>Получите консультацию эксперта</h2>
+            <p>Опишите задачу — закрепим за&nbsp;вами консультанта с&nbsp;релевантной отраслевой экспертизой и&nbsp;подготовим расчёт стоимости в&nbsp;течение дня.</p>
+          </div>
+          <a href="../index.html#contacts" class="btn btn-gold btn-lg">Получить консультацию</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="../index.html" class="logo">АУДИТ <span>ПЛЮС</span></a>
+          <p>Аудиторская и&nbsp;консалтинговая компания. Член СРО ААС. Работаем с&nbsp;1995 года — более 1 200 завершённых проектов для&nbsp;российского и&nbsp;международного бизнеса.</p>
+        </div>
+        <div>
+          <h4>Услуги</h4>
+          <ul>
+            <li><a href="audit.html">Аудит</a></li>
+            <li><a href="accounting.html">Бухобслуживание</a></li>
+            <li><a href="consulting.html">Консалтинг</a></li>
+            <li><a href="../tariffs.html">Тарифы</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="../index.html#about">О&nbsp;нас</a></li>
+            <li><a href="../index.html#testimonials">Отзывы</a></li>
+            <li><a href="../index.html#contacts">Контакты</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="tel:+78001234567">8 (800) 123-45-67</a></li>
+            <li><a href="mailto:info@auditplus.ru">info@auditplus.ru</a></li>
+            <li>Москва, ул. Тверская, 15</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 1995–2026 ООО «Аудит Плюс». Все&nbsp;права защищены.</span>
+        <span>ОГРН 1027700123456 · ИНН 7712345678</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Уведомление о cookie">
+    <span>Мы используем cookie для&nbsp;улучшения работы сайта. Подробнее в&nbsp;<a href="#">политике конфиденциальности</a>.</span>
+    <button class="btn btn-gold btn-sm" id="cookieAccept">Принять</button>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Наверх"><i data-lucide="arrow-up" class="icon"></i></button>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    if (window.lucide) lucide.createIcons();
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuToggle?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      const isOpen = mobileMenu.classList.contains('open');
+      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    const header = document.querySelector('.site-header');
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 8);
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    });
+    backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const cookieBanner = document.getElementById('cookieBanner');
+    if (localStorage.getItem('ap_cookie_ok')) cookieBanner.style.display = 'none';
+    document.getElementById('cookieAccept')?.addEventListener('click', () => {
+      localStorage.setItem('ap_cookie_ok', '1');
+      cookieBanner.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

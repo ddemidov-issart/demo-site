@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Раскрытие информации о деятельности аудиторской организации ООО «Аудит Плюс». ИНН 2463034272. Сведения о руководстве, аудиторах, выручке за 2021–2024 гг.">
+  <title>Раскрытие информации — ООО «Аудит Плюс»</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Page-specific styles -->
+  <style>
+    /* ---- Header (consistent with index) ---- */
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 24px;
+    }
+    .logo {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .logo span { color: var(--accent-gold); }
+    .nav-desktop {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    .nav-desktop a {
+      color: var(--graphite);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: var(--text-base);
+      transition: color var(--transition-fast);
+    }
+    .nav-desktop a:hover { color: var(--primary); }
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .header-phone {
+      color: var(--graphite);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: var(--text-sm);
+    }
+    .header-phone:hover { color: var(--primary); }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--graphite);
+    }
+    @media (max-width: 1024px) {
+      .nav-desktop, .header-phone { display: none; }
+      .menu-toggle { display: inline-flex; }
+    }
+
+    /* ---- Hero (compact) ---- */
+    .info-hero {
+      background: var(--bg-light);
+      padding: 48px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .breadcrumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .breadcrumbs a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .breadcrumbs a:hover { color: var(--primary); }
+    .breadcrumbs [aria-current="page"] {
+      color: var(--graphite);
+      font-weight: 500;
+    }
+    .breadcrumbs .sep { color: var(--text-muted); }
+    .info-hero h1 {
+      font-size: var(--text-4xl);
+      font-weight: 700;
+      max-width: 920px;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .info-hero .subtitle {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      max-width: 720px;
+    }
+    .info-hero .subtitle strong { color: var(--graphite); font-weight: 600; }
+    @media (max-width: 768px) {
+      .info-hero h1 { font-size: var(--text-3xl); }
+      .info-hero { padding: 32px 0 40px; }
+    }
+
+    /* ---- TOC card ---- */
+    .toc {
+      margin-top: -32px;
+      position: relative;
+      z-index: 1;
+    }
+    .toc-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: 28px 32px;
+    }
+    .toc-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--graphite);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-list {
+      list-style: none;
+      counter-reset: toc-counter;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 32px;
+    }
+    .toc-list li {
+      counter-increment: toc-counter;
+      position: relative;
+      padding-left: 32px;
+    }
+    .toc-list li::before {
+      content: counter(toc-counter, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 6px;
+      font-family: var(--font-heading);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+    .toc-list a {
+      display: block;
+      padding: 6px 0;
+      color: var(--graphite);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: color var(--transition-fast), border-color var(--transition-fast);
+    }
+    .toc-list a:hover {
+      color: var(--primary);
+      border-bottom-color: var(--primary-light);
+    }
+    @media (max-width: 768px) {
+      .toc-list { grid-template-columns: 1fr; gap: 4px; }
+      .toc-card { padding: 24px; }
+    }
+
+    /* ---- Main content (sections) ---- */
+    .info-main {
+      padding: 56px 0 96px;
+      background: var(--bg-light);
+    }
+    .info-section {
+      scroll-margin-top: 96px;
+      margin-bottom: 32px;
+      padding: 40px 48px;
+    }
+    .info-section h2 {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--graphite);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .info-section h2 .section-num {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: white;
+      background: var(--primary);
+      padding: 4px 12px;
+      border-radius: var(--radius-md);
+      flex-shrink: 0;
+      min-width: 48px;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .info-section h3 {
+      font-family: var(--font-body);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--graphite);
+      margin: 24px 0 12px;
+    }
+    .info-section p, .info-section li {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .info-section ul, .info-section ol {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    .info-section ul li, .info-section ol li {
+      margin-bottom: 6px;
+    }
+    .section-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+      border: 0;
+    }
+    @media (max-width: 768px) {
+      .info-section { padding: 28px 24px; }
+      .info-section h2 { font-size: var(--text-xl); gap: 12px; }
+    }
+
+    /* ---- Definition list ---- */
+    .dl-table {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.4fr) 1fr;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      margin: 16px 0;
+    }
+    .dl-table dt {
+      padding: 14px 16px 14px 0;
+      font-weight: 600;
+      color: var(--graphite);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-light);
+      padding-left: 16px;
+    }
+    .dl-table dd {
+      padding: 14px 16px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+      margin: 0;
+    }
+    .dl-table dd a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .dl-table dd a:hover { text-decoration: underline; }
+    @media (max-width: 640px) {
+      .dl-table { grid-template-columns: 1fr; }
+      .dl-table dt { padding: 12px 16px 4px; border-bottom: 0; }
+      .dl-table dd { padding: 0 16px 12px; background: var(--bg-light); }
+    }
+
+    /* ---- Data tables ---- */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--text-base);
+      background: var(--bg-white);
+    }
+    .data-table caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 600;
+      color: var(--graphite);
+      padding: 0 0 12px;
+    }
+    .data-table thead th {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      padding: 14px 16px;
+      text-align: left;
+      font-size: var(--text-sm);
+      letter-spacing: 0.02em;
+    }
+    .data-table thead th:not(:first-child) { text-align: center; }
+    .data-table tbody td {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .data-table tbody td:first-child {
+      font-weight: 500;
+      color: var(--graphite);
+    }
+    .data-table tbody td:not(:first-child) {
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+    .data-table tbody tr:nth-child(even) {
+      background: var(--bg-light);
+    }
+    .data-table tbody tr:hover {
+      background: var(--bg-blue);
+    }
+    .data-table tfoot td {
+      padding: 12px 16px;
+      font-weight: 600;
+      color: var(--graphite);
+      background: var(--bg-light);
+      border-top: 2px solid var(--primary);
+    }
+
+    /* ---- Callouts ---- */
+    .callout {
+      background: var(--bg-blue);
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 16px 0;
+      color: var(--graphite);
+    }
+    .callout strong { color: var(--primary-dark); }
+    .callout.success {
+      background: #ECFDF5;
+      border-left-color: var(--success);
+    }
+    .callout.success strong { color: var(--success); }
+    .callout.warning {
+      background: #FFFBEB;
+      border-left-color: var(--warning);
+    }
+
+    /* ---- Signature block ---- */
+    .signature {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--bg-light);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-md);
+      margin: 16px 0;
+    }
+    .signature-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--accent-gold);
+      color: white;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .signature-meta {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+    }
+    .signature-meta strong {
+      display: block;
+      color: var(--graphite);
+      font-size: var(--text-base);
+      margin-bottom: 2px;
+    }
+
+    /* ---- Footer ---- */
+    .site-footer {
+      background: var(--graphite);
+      color: rgba(255,255,255,0.85);
+      padding: 64px 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .footer-logo span { color: var(--accent-gold); }
+    .footer-tagline {
+      color: rgba(255,255,255,0.6);
+      font-size: var(--text-sm);
+      max-width: 320px;
+      line-height: 1.6;
+    }
+    .footer-col h4 {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: white;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: var(--text-sm);
+      transition: color var(--transition-fast);
+    }
+    .footer-col a:hover { color: var(--accent-gold-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.55);
+    }
+    .footer-bottom a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+    .footer-bottom a:hover { color: var(--accent-gold-light); }
+  </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Главная",
+        "item": "https://auditplyus.ru/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Раскрытие информации",
+        "item": "https://auditplyus.ru/info.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "ООО «Аудит Плюс»",
+    "alternateName": "Аудит Плюс",
+    "taxID": "2463034272",
+    "telephone": "+7-983-268-98-58",
+    "email": "info@auditplyus.ru",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Конституции СССР, д.7, оф.66",
+      "addressLocality": "Красноярск",
+      "postalCode": "660049",
+      "addressCountry": "RU"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Skip link -->
+  <a href="#main-content" class="skip-link">Перейти к&nbsp;основному содержимому</a>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="Аудит Плюс — на главную">
+          АУДИТ<span>ПЛЮС</span>
+        </a>
+
+        <nav class="nav-desktop" aria-label="Главное меню">
+          <a href="index.html#services">Услуги</a>
+          <a href="tariffs.html">Тарифы</a>
+          <a href="index.html#about">О&nbsp;компании</a>
+          <a href="index.html#testimonials">Отзывы</a>
+          <a href="index.html#contacts">Контакты</a>
+        </nav>
+
+        <div class="header-cta">
+          <a href="tel:+79832689858" class="header-phone">+7 (983) 268-98-58</a>
+          <a href="index.html#contacts" class="btn btn-primary btn-sm">Получить КП</a>
+          <button class="menu-toggle" id="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
+            <i data-lucide="menu" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Мобильное меню">
+    <a href="index.html#services">Услуги</a>
+    <a href="tariffs.html">Тарифы</a>
+    <a href="index.html#about">О&nbsp;компании</a>
+    <a href="index.html#testimonials">Отзывы</a>
+    <a href="index.html#contacts">Контакты</a>
+    <a href="tel:+79832689858">+7 (983) 268-98-58</a>
+    <a href="index.html#contacts" class="btn btn-primary" style="margin-top:16px;">Получить КП</a>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ============ Hero ============ -->
+    <section class="info-hero" aria-labelledby="page-title">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="index.html">Главная</a>
+          <span class="sep" aria-hidden="true">›</span>
+          <span aria-current="page">Раскрытие информации</span>
+        </nav>
+        <h1 id="page-title">Раскрытие информации о&nbsp;деятельности аудиторской организации</h1>
+        <p class="subtitle">
+          <strong>ООО «Аудит Плюс»</strong> &nbsp;|&nbsp; ИНН <strong>2463034272</strong> &nbsp;|&nbsp; Данные за&nbsp;<strong>2021–2024&nbsp;гг.</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Table of contents ============ -->
+    <section class="toc" aria-labelledby="toc-title">
+      <div class="container">
+        <div class="toc-card">
+          <h2 class="toc-title" id="toc-title">
+            <i data-lucide="list" aria-hidden="true"></i>
+            Содержание
+          </h2>
+          <ol class="toc-list">
+            <li><a href="#section-1">Информация об организации</a></li>
+            <li><a href="#section-2">Право оказания аудиторских услуг</a></li>
+            <li><a href="#section-3">Структура организации</a></li>
+            <li><a href="#section-4">Связанные лица</a></li>
+            <li><a href="#section-5">Этика и&nbsp;независимость</a></li>
+            <li><a href="#section-6">Контроль и&nbsp;надзор</a></li>
+            <li><a href="#section-7">Аудиторы</a></li>
+            <li><a href="#section-8">Выручка</a></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Main content ============ -->
+    <div class="info-main">
+      <div class="container">
+
+        <!-- ===== Section 1: Information about organization ===== -->
+        <section id="section-1" class="info-section card">
+          <h2><span class="section-num">01</span> Информация об организации</h2>
+          <p>Основные реквизиты, контактные данные и&nbsp;адрес местонахождения аудиторской организации.</p>
+
+          <dl class="dl-table">
+            <dt>Организационно-правовая форма</dt>
+            <dd>Общество с&nbsp;ограниченной ответственностью (ООО)</dd>
+
+            <dt>Полное наименование</dt>
+            <dd>Общество с&nbsp;ограниченной ответственностью «Аудит Плюс»</dd>
+
+            <dt>Сокращённое наименование</dt>
+            <dd>ООО «Аудит Плюс»</dd>
+
+            <dt>ИНН / ОРНЗ</dt>
+            <dd>2463034272 / 12006102083</dd>
+
+            <dt>Адрес местонахождения</dt>
+            <dd>660049, Российская Федерация, г. Красноярск, ул. Конституции СССР, д. 7, оф. 66</dd>
+
+            <dt>Телефон</dt>
+            <dd><a href="tel:+79832689858">+7 (983) 268-98-58</a></dd>
+
+            <dt>Электронная почта</dt>
+            <dd><a href="mailto:info@auditplyus.ru">info@auditplyus.ru</a></dd>
+
+            <dt>Сайт</dt>
+            <dd><a href="https://auditplyus.ru" rel="noopener">auditplyus.ru</a></dd>
+          </dl>
+        </section>
+
+        <!-- ===== Section 2: Right to provide audit services ===== -->
+        <section id="section-2" class="info-section card">
+          <h2><span class="section-num">02</span> Право оказания аудиторских услуг</h2>
+          <p>
+            ООО «Аудит Плюс» является членом саморегулируемой организации аудиторов
+            «Содружество» (СРО ААС). Право на&nbsp;осуществление аудиторской деятельности подтверждается
+            записью в&nbsp;реестре аудиторов и&nbsp;аудиторских организаций СРО ААС.
+          </p>
+
+          <dl class="dl-table">
+            <dt>Дата внесения в&nbsp;реестр аудиторов и&nbsp;аудиторских организаций</dt>
+            <dd>02 марта 2020 г.</dd>
+
+            <dt>Основной регистрационный номер записи (ОРНЗ)</dt>
+            <dd>12006102083</dd>
+
+            <dt>Реестр аудиторских организаций, оказывающих аудиторские услуги общественно значимым организациям (ОЗО)</dt>
+            <dd>сведения отсутствуют</dd>
+
+            <dt>Реестр аудиторских организаций, оказывающих аудиторские услуги ОЗО на&nbsp;финансовом рынке</dt>
+            <dd>сведения отсутствуют</dd>
+          </dl>
+
+          <div class="callout">
+            <strong>Информация актуальна на&nbsp;31 декабря 2024 г.</strong> Сведения о&nbsp;членстве проверяются на&nbsp;официальном сайте СРО ААС «Содружество».
+          </div>
+        </section>
+
+        <!-- ===== Section 3: Organization structure ===== -->
+        <section id="section-3" class="info-section card">
+          <h2><span class="section-num">03</span> Структура организации</h2>
+          <p>Информация об органах управления аудиторской организации и&nbsp;распределении полномочий.</p>
+
+          <h3>Высший орган управления — общее собрание участников</h3>
+          <p>К&nbsp;исключительной компетенции общего собрания участников относятся:</p>
+          <ul>
+            <li>определение основных направлений деятельности Общества;</li>
+            <li>утверждение устава, внесение в&nbsp;него изменений и&nbsp;дополнений;</li>
+            <li>образование исполнительных органов Общества и&nbsp;досрочное прекращение их&nbsp;полномочий;</li>
+            <li>утверждение годовых отчётов и&nbsp;годовых бухгалтерских балансов;</li>
+            <li>принятие решений о&nbsp;распределении чистой прибыли;</li>
+            <li>утверждение (принятие) документов, регулирующих внутреннюю деятельность Общества;</li>
+            <li>принятие решений о&nbsp;реорганизации и&nbsp;ликвидации Общества;</li>
+            <li>назначение аудиторской проверки, утверждение аудитора Общества.</li>
+          </ul>
+
+          <hr class="section-divider">
+
+          <h3>Единоличный исполнительный орган — Генеральный директор</h3>
+          <p><strong>Костицина Елена Анатольевна</strong></p>
+          <p>В&nbsp;функции Генерального директора входит:</p>
+          <ul>
+            <li>осуществление текущего руководства деятельностью Общества;</li>
+            <li>представление интересов Общества во&nbsp;всех учреждениях, предприятиях и&nbsp;организациях;</li>
+            <li>заключение сделок и&nbsp;совершение иных юридически значимых действий от&nbsp;имени Общества;</li>
+            <li>распоряжение имуществом Общества в&nbsp;пределах своей компетенции;</li>
+            <li>приём и&nbsp;увольнение работников, утверждение штатного расписания;</li>
+            <li>издание приказов и&nbsp;распоряжений, обязательных для&nbsp;исполнения всеми работниками;</li>
+            <li>организация ведения бухгалтерского учёта и&nbsp;отчётности Общества;</li>
+            <li>обеспечение соблюдения требований законодательства и&nbsp;внутренних регламентов.</li>
+          </ul>
+
+          <hr class="section-divider">
+
+          <h3>Совет директоров (наблюдательный совет)</h3>
+          <p>Не&nbsp;сформирован — отсутствует.</p>
+
+          <h3>Коллегиальный исполнительный орган</h3>
+          <p>Не&nbsp;сформирован — отсутствует.</p>
+        </section>
+
+        <!-- ===== Section 4: Related parties ===== -->
+        <section id="section-4" class="info-section card">
+          <h2><span class="section-num">04</span> Связанные лица</h2>
+          <p>Сведения о&nbsp;связанных лицах, бенефициарных владельцах и&nbsp;составе участников Общества.</p>
+
+          <dl class="dl-table">
+            <dt>Филиалы и&nbsp;представительства</dt>
+            <dd>отсутствуют</dd>
+
+            <dt>Дочерние и&nbsp;зависимые общества</dt>
+            <dd>отсутствуют</dd>
+
+            <dt>Членство в&nbsp;сетях аудиторских организаций</dt>
+            <dd>отсутствует</dd>
+
+            <dt>Бенефициарный владелец</dt>
+            <dd>Костицина Елена Анатольевна — доля участия 100 %, гражданство Российской Федерации</dd>
+
+            <dt>Совокупная доля аудиторов и&nbsp;аудиторских организаций в&nbsp;уставном капитале</dt>
+            <dd>20&nbsp;409 руб. (100 %)</dd>
+          </dl>
+
+          <div class="callout">
+            <strong>Контроль и&nbsp;владение.</strong> Общество не&nbsp;входит в&nbsp;группы взаимосвязанных аудиторских организаций и&nbsp;не&nbsp;имеет иных бенефициаров, кроме указанного.
+          </div>
+        </section>
+
+        <!-- ===== Section 5: Ethics & independence ===== -->
+        <section id="section-5" class="info-section card">
+          <h2><span class="section-num">05</span> Этика и&nbsp;независимость</h2>
+          <p>
+            ООО «Аудит Плюс» обеспечивает соблюдение Кодекса профессиональной этики аудиторов и
+            Правил независимости аудиторов и&nbsp;аудиторских организаций. Действующие политики и&nbsp;процедуры
+            направлены на&nbsp;исключение угроз независимости и&nbsp;поддержание профессионального скептицизма
+            при&nbsp;выполнении заданий.
+          </p>
+
+          <h3>Основополагающие принципы</h3>
+          <ul>
+            <li><strong>Честность.</strong> Открытое и&nbsp;добросовестное ведение деловых и&nbsp;профессиональных отношений.</li>
+            <li><strong>Объективность.</strong> Отказ от&nbsp;любых форм предвзятости и&nbsp;конфликта интересов при&nbsp;формировании профессионального мнения.</li>
+            <li><strong>Профессиональная компетентность и&nbsp;должная тщательность.</strong> Поддержание знаний и&nbsp;навыков на&nbsp;уровне, обеспечивающем оказание услуг надлежащего качества.</li>
+            <li><strong>Конфиденциальность.</strong> Защита информации, полученной в&nbsp;ходе профессиональной деятельности, и&nbsp;недопущение её разглашения третьим лицам без&nbsp;надлежащих оснований.</li>
+            <li><strong>Профессиональное поведение.</strong> Соблюдение действующего законодательства и&nbsp;недопущение действий, дискредитирующих профессию.</li>
+          </ul>
+
+          <h3>Система вознаграждения работников</h3>
+          <p>
+            Система вознаграждения построена на&nbsp;сочетании постоянной (оклад) и&nbsp;переменной (премии) частей.
+            Размер премий определяется по&nbsp;результатам оценки качества работы, соблюдения профессиональных
+            стандартов и&nbsp;достижения корпоративных целей. Вознаграждение руководителей заданий
+            и&nbsp;ключевых участников аудиторских групп <strong>не&nbsp;зависит</strong> от&nbsp;продажи прочих услуг
+            тому же аудируемому лицу.
+          </p>
+
+          <h3>Ротация руководителей аудита</h3>
+          <p>
+            В&nbsp;отношении руководителей заданий по&nbsp;аудиту общественно значимых организаций применяются
+            правила ротации, установленные международными стандартами и&nbsp;российским законодательством.
+            На&nbsp;дату подписания настоящей информации задания по&nbsp;аудиту ОЗО не&nbsp;выполнялись.
+          </p>
+
+          <div class="signature">
+            <span class="signature-icon" aria-hidden="true">
+              <i data-lucide="badge-check"></i>
+            </span>
+            <div class="signature-meta">
+              <strong>Е.А. Костицина</strong>
+              Генеральный директор ООО «Аудит Плюс» &nbsp;·&nbsp; Заявления подписаны 30.03.2022, 30.03.2023, 30.03.2024, 31.03.2025
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Section 6: Quality control & supervision ===== -->
+        <section id="section-6" class="info-section card">
+          <h2><span class="section-num">06</span> Контроль и&nbsp;надзор</h2>
+
+          <h3>Внутренний контроль качества</h3>
+          <p>
+            В&nbsp;ООО «Аудит Плюс» функционирует система внутреннего контроля качества, разработанная
+            и&nbsp;применяемая в&nbsp;соответствии с&nbsp;требованиями Международного стандарта контроля качества
+            <strong>МСК&nbsp;1</strong> «Контроль качества в&nbsp;аудиторских организациях, проводящих аудит
+            и&nbsp;обзорные проверки финансовой отчётности, а&nbsp;также выполняющих прочие задания,
+            обеспечивающие уверенность, и&nbsp;задания по&nbsp;оказанию сопутствующих услуг» и
+            <strong>МСК&nbsp;2</strong> «Контроль качества при&nbsp;выполнении заданий по&nbsp;аудиту
+            и&nbsp;обзорным проверкам финансовой отчётности, а&nbsp;также прочих заданий, обеспечивающих
+            уверенность, и&nbsp;заданий по&nbsp;оказанию сопутствующих услуг».
+          </p>
+
+          <h3>Внешний контроль качества работы</h3>
+          <p>
+            Последняя внешняя проверка качества работы (ВККР) проведена СРО аудиторов «Содружество»
+            (СРО&nbsp;ААС) в&nbsp;<strong>2023&nbsp;году</strong>.
+          </p>
+
+          <div class="callout success">
+            <strong>Результат проверки:</strong> существенных нарушений требований Федерального закона
+            «Об аудиторской деятельности», стандартов аудиторской деятельности, правил независимости
+            и&nbsp;Кодекса профессиональной этики аудиторов не&nbsp;выявлено.
+          </div>
+
+          <h3>Меры дисциплинарного воздействия</h3>
+          <p>За&nbsp;весь период деятельности меры дисциплинарного воздействия в&nbsp;отношении ООО «Аудит Плюс»
+          и&nbsp;его работников <strong>не&nbsp;применялись</strong>.</p>
+        </section>
+
+        <!-- ===== Section 7: Auditors ===== -->
+        <section id="section-7" class="info-section card">
+          <h2><span class="section-num">07</span> Аудиторы</h2>
+          <p>Сведения о&nbsp;численности аудиторов, для&nbsp;которых ООО «Аудит Плюс» является основным местом работы.</p>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <caption>Численность аудиторов и&nbsp;работников по&nbsp;состоянию на&nbsp;отчётные даты</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Показатель</th>
+                  <th scope="col">01.01.2022</th>
+                  <th scope="col">01.01.2023</th>
+                  <th scope="col">01.01.2024</th>
+                  <th scope="col">01.01.2025</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Аудиторов, для&nbsp;которых организация является основным местом работы</td>
+                  <td>3</td>
+                  <td>3</td>
+                  <td>3</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>Из&nbsp;них с&nbsp;квалификационным аттестатом, выданным после 01.01.2011</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Повышение квалификации</h3>
+          <p>
+            Все&nbsp;аудиторы ООО «Аудит Плюс» ежегодно проходят повышение квалификации в&nbsp;объёме
+            <strong>не&nbsp;менее 40 часов</strong> по&nbsp;программам, утверждённым саморегулируемой организацией
+            аудиторов. Соблюдение требований к&nbsp;непрерывному профессиональному образованию подтверждается
+            свидетельствами о&nbsp;прохождении обучения и&nbsp;отражается во&nbsp;внутренней документации Общества.
+          </p>
+        </section>
+
+        <!-- ===== Section 8: Revenue ===== -->
+        <section id="section-8" class="info-section card">
+          <h2><span class="section-num">08</span> Выручка</h2>
+          <p>Структура и&nbsp;динамика выручки ООО «Аудит Плюс» по&nbsp;видам деятельности, тыс. рублей.</p>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <caption>Выручка по&nbsp;видам услуг за&nbsp;2021–2024 гг., тыс.&nbsp;₽</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Показатель</th>
+                  <th scope="col">2021</th>
+                  <th scope="col">2022</th>
+                  <th scope="col">2023</th>
+                  <th scope="col">2024</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Общая выручка</td>
+                  <td>1&nbsp;750</td>
+                  <td>2&nbsp;700</td>
+                  <td>2&nbsp;020</td>
+                  <td>2&nbsp;350</td>
+                </tr>
+                <tr>
+                  <td>Выручка от&nbsp;аудиторских услуг</td>
+                  <td>1&nbsp;750</td>
+                  <td>1&nbsp;900</td>
+                  <td>1&nbsp;900</td>
+                  <td>2&nbsp;050</td>
+                </tr>
+                <tr>
+                  <td>Выручка от&nbsp;прочих услуг, связанных с&nbsp;аудиторской деятельностью</td>
+                  <td>0</td>
+                  <td>800</td>
+                  <td>120</td>
+                  <td>300</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout">
+            <strong>Примечание.</strong> Данные подготовлены на&nbsp;основании данных бухгалтерского учёта
+            ООО «Аудит Плюс». Расхождения за&nbsp;счёт округления до&nbsp;целых тысяч рублей допускаются.
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo">АУДИТ<span>ПЛЮС</span></a>
+          <p class="footer-tagline">
+            Профессиональные аудиторские услуги в&nbsp;Красноярске с&nbsp;2020 года.
+            Член СРО ААС «Содружество», ОРНЗ 12006102083.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="index.html#about">О&nbsp;компании</a></li>
+            <li><a href="index.html#services">Услуги</a></li>
+            <li><a href="tariffs.html">Тарифы</a></li>
+            <li><a href="info.html">Раскрытие информации</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Клиентам</h4>
+          <ul>
+            <li><a href="index.html#testimonials">Отзывы</a></li>
+            <li><a href="index.html#contacts">Контакты</a></li>
+            <li><a href="index.html#faq">Вопросы и&nbsp;ответы</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="tel:+79832689858">+7 (983) 268-98-58</a></li>
+            <li><a href="mailto:info@auditplyus.ru">info@auditplyus.ru</a></li>
+            <li>660049, Красноярск,<br>ул. Конституции СССР, 7, оф. 66</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2020–2026 ООО «Аудит Плюс». Все&nbsp;права защищены.</span>
+        <span>ИНН 2463034272 · ОРНЗ 12006102083</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie banner -->
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Уведомление о файлах cookie">
+    <span>
+      Мы используем файлы cookie для&nbsp;улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с
+      <a href="#">политикой обработки данных</a>.
+    </span>
+    <button class="btn btn-primary btn-sm" id="cookie-accept" type="button">Принять</button>
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Наверх">
+    <i data-lucide="arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    (function () {
+      // Init icons
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+
+      // Sticky header shadow on scroll
+      var header = document.getElementById('site-header');
+      var backTop = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY || window.pageYOffset;
+        if (header) header.classList.toggle('scrolled', y > 8);
+        if (backTop) backTop.classList.toggle('visible', y > 480);
+      }, { passive: true });
+
+      // Mobile menu toggle
+      var toggle = document.getElementById('menu-toggle');
+      var menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function () {
+          var open = menu.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+        });
+        // Close mobile menu when a link is clicked
+        menu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            menu.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // Back to top
+      if (backTop) {
+        backTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // Cookie banner
+      var banner = document.getElementById('cookie-banner');
+      var accept = document.getElementById('cookie-accept');
+      try {
+        if (banner && localStorage.getItem('auditplyus_cookie_ok') === '1') {
+          banner.style.display = 'none';
+        }
+      } catch (e) { /* localStorage unavailable */ }
+      if (accept && banner) {
+        accept.addEventListener('click', function () {
+          banner.style.display = 'none';
+          try { localStorage.setItem('auditplyus_cookie_ok', '1'); } catch (e) {}
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

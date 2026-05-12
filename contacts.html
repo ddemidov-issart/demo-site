@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Контакты компании «Аудит Плюс» — Красноярск, ул. Конституции СССР, д.7, оф.66. Телефон +7 (983) 268-98-58, email info@auditplyus.ru.">
+  <title>Контакты — Аудит Плюс</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific styles */
+    .breadcrumbs {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      padding: 16px 0;
+    }
+    .breadcrumbs a { color: var(--primary); text-decoration: none; }
+    .breadcrumbs a:hover { text-decoration: underline; }
+    .breadcrumbs span[aria-current] { color: var(--text-muted); }
+    .breadcrumbs .sep { margin: 0 8px; color: var(--text-muted); }
+
+    .page-hero {
+      background: var(--bg-light);
+      padding: 48px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero h1 {
+      font-size: var(--text-4xl);
+      font-weight: 700;
+      margin-top: 8px;
+    }
+    .page-hero p {
+      margin-top: 12px;
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      max-width: 640px;
+    }
+    @media (max-width: 768px) {
+      .page-hero h1 { font-size: var(--text-3xl); }
+    }
+
+    .info-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: all var(--transition-base);
+    }
+    .info-card:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-md);
+    }
+    .info-icon {
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+      background: var(--bg-blue);
+      color: var(--primary);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .info-card .info-title {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .info-card .info-value {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--graphite);
+      line-height: 1.4;
+    }
+    .info-card .info-value a {
+      color: var(--graphite);
+      text-decoration: none;
+    }
+    .info-card .info-value a:hover { color: var(--primary); }
+    .info-sub {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .messengers {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .messenger-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--graphite);
+      text-decoration: none;
+      transition: all var(--transition-fast);
+    }
+    .messenger-link:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--bg-blue);
+    }
+
+    .requisites {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .requisites strong { color: var(--graphite); font-weight: 600; }
+
+    .form-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+    .form-card h2 {
+      font-size: var(--text-2xl);
+      margin-bottom: 8px;
+    }
+    .form-card .form-intro {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+    .checkbox-group {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+    .checkbox-group input { margin-top: 4px; }
+    .checkbox-group a { color: var(--primary); }
+
+    .map-placeholder {
+      margin-top: 24px;
+      background: linear-gradient(135deg, #E5E7EB 0%, #D1D5DB 100%);
+      border-radius: var(--radius-lg);
+      padding: 80px 24px;
+      text-align: center;
+      color: var(--graphite);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .map-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.6;
+    }
+    .map-placeholder > * { position: relative; z-index: 1; }
+    .map-placeholder .map-pin {
+      width: 56px;
+      height: 56px;
+      background: var(--primary);
+      color: white;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-lg);
+    }
+    .map-placeholder h3 {
+      font-size: var(--text-xl);
+      margin-bottom: 8px;
+    }
+    .map-placeholder p {
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .map-route {
+      margin-top: 16px;
+      padding: 16px 24px;
+      background: var(--bg-light);
+      border-left: 4px solid var(--accent-gold);
+      border-radius: var(--radius-md);
+      font-size: var(--text-base);
+      color: var(--text-primary);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    /* Header */
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 24px;
+    }
+    .logo {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: var(--text-xl);
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .logo span { color: var(--accent-gold); }
+    .main-nav {
+      display: flex;
+      gap: 28px;
+    }
+    .main-nav a {
+      color: var(--graphite);
+      text-decoration: none;
+      font-size: var(--text-base);
+      font-weight: 500;
+      transition: color var(--transition-fast);
+    }
+    .main-nav a:hover, .main-nav a.active { color: var(--primary); }
+    .header-cta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .header-phone {
+      font-weight: 600;
+      color: var(--graphite);
+      text-decoration: none;
+      font-size: var(--text-base);
+    }
+    .header-phone:hover { color: var(--primary); }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--graphite);
+      padding: 8px;
+    }
+    @media (max-width: 1024px) {
+      .main-nav, .header-phone { display: none; }
+      .mobile-toggle { display: inline-flex; }
+    }
+    @media (max-width: 640px) {
+      .header-cta .btn { display: none; }
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--graphite);
+      color: #D1D5DB;
+      padding: 64px 0 24px;
+      margin-top: 96px;
+    }
+    .site-footer h4 {
+      font-family: var(--font-body);
+      color: white;
+      font-size: var(--text-base);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .site-footer ul { list-style: none; }
+    .site-footer li { margin-bottom: 8px; }
+    .site-footer a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-size: var(--text-sm);
+      transition: color var(--transition-fast);
+    }
+    .site-footer a:hover { color: var(--accent-gold-light); }
+    .site-footer .footer-logo {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      color: white;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .site-footer .footer-logo span { color: var(--accent-gold-light); }
+    .footer-tagline {
+      font-size: var(--text-sm);
+      color: #9CA3AF;
+      max-width: 280px;
+      line-height: 1.6;
+    }
+    .footer-bottom {
+      border-top: 1px solid #374151;
+      margin-top: 48px;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: var(--text-sm);
+      color: #9CA3AF;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Перейти к&nbsp;основному содержанию</a>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="nav-wrap">
+        <a href="index.html" class="logo">АУДИТ <span>ПЛЮС</span></a>
+        <nav class="main-nav" aria-label="Главная навигация">
+          <a href="index.html">Главная</a>
+          <a href="index.html#about">О&nbsp;компании</a>
+          <a href="index.html#services">Услуги</a>
+          <a href="blog.html">Блог</a>
+          <a href="contacts.html" class="active">Контакты</a>
+        </nav>
+        <div class="header-cta">
+          <a href="tel:+79832689858" class="header-phone">+7 (983) 268-98-58</a>
+          <a href="#consult" class="btn btn-primary btn-sm">Консультация</a>
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Открыть меню" aria-controls="mobileMenu" aria-expanded="false">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Мобильное меню">
+    <a href="index.html">Главная</a>
+    <a href="index.html#about">О&nbsp;компании</a>
+    <a href="index.html#services">Услуги</a>
+    <a href="blog.html">Блог</a>
+    <a href="contacts.html">Контакты</a>
+    <a href="tel:+79832689858">+7 (983) 268-98-58</a>
+  </div>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="index.html">Главная</a>
+          <span class="sep">→</span>
+          <span aria-current="page">Контакты</span>
+        </nav>
+        <h1>Контакты</h1>
+        <p>Свяжитесь с&nbsp;нами удобным способом — мы ответим в&nbsp;течение рабочего дня и&nbsp;бесплатно проконсультируем по&nbsp;любому вопросу аудита, бухучёта и&nbsp;налогов.</p>
+      </div>
+    </section>
+
+    <!-- Two-column main content -->
+    <section class="section-sm">
+      <div class="container">
+        <div class="grid-2">
+          <!-- Left: Contact info -->
+          <div>
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true"><i data-lucide="phone"></i></div>
+              <div>
+                <div class="info-title">Телефоны</div>
+                <div class="info-value"><a href="tel:+79832689858">+7 (983) 268-98-58</a></div>
+                <div class="info-value" style="margin-top:6px;"><a href="tel:88000000000">8-800-000-00-00</a></div>
+                <div class="info-sub">Бесплатно по&nbsp;России</div>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true"><i data-lucide="mail"></i></div>
+              <div>
+                <div class="info-title">Email</div>
+                <div class="info-value"><a href="mailto:info@auditplyus.ru">info@auditplyus.ru</a></div>
+                <div class="info-sub">Отвечаем в&nbsp;течение 2 часов в&nbsp;рабочее время</div>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true"><i data-lucide="map-pin"></i></div>
+              <div>
+                <div class="info-title">Адрес офиса</div>
+                <div class="info-value">г. Красноярск, ул. Конституции СССР, д.7, оф.66</div>
+                <div class="info-sub">Бизнес-центр, 6-й этаж</div>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true"><i data-lucide="clock"></i></div>
+              <div>
+                <div class="info-title">Режим работы</div>
+                <div class="info-value">Пн–Пт 9:00–18:00</div>
+                <div class="info-sub">Сб–Вс — выходные. Срочные обращения принимаем по&nbsp;email.</div>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true"><i data-lucide="message-circle"></i></div>
+              <div style="width:100%;">
+                <div class="info-title">Мессенджеры</div>
+                <div class="info-value" style="font-size: var(--text-base); font-weight:500;">Напишите нам — это&nbsp;удобно и&nbsp;быстро</div>
+                <div class="messengers">
+                  <a href="https://wa.me/79832689858" class="messenger-link" aria-label="Написать в WhatsApp">
+                    <i data-lucide="message-square"></i> WhatsApp
+                  </a>
+                  <a href="https://t.me/auditplyus" class="messenger-link" aria-label="Написать в Telegram">
+                    <i data-lucide="send"></i> Telegram
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true"><i data-lucide="file-text"></i></div>
+              <div>
+                <div class="info-title">Реквизиты</div>
+                <div class="requisites">
+                  <strong>ООО «Аудит Плюс»</strong><br>
+                  ИНН 2463034272<br>
+                  ОГРН 1022402148735<br>
+                  Член СРО ААС (Саморегулируемой организации аудиторов «Содружество»)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Form -->
+          <div>
+            <div class="form-card" id="consult">
+              <h2>Напишите нам</h2>
+              <p class="form-intro">Оставьте заявку — мы перезвоним и&nbsp;бесплатно ответим на&nbsp;все&nbsp;вопросы.</p>
+              <form id="contactForm" novalidate>
+                <div class="form-group">
+                  <label class="form-label" for="cf-name">Имя <span style="color:var(--error)">*</span></label>
+                  <input id="cf-name" name="name" type="text" class="form-input" required placeholder="Иван Иванов">
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="cf-phone">Телефон <span style="color:var(--error)">*</span></label>
+                    <input id="cf-phone" name="phone" type="tel" class="form-input" required placeholder="+7 (___) ___-__-__">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="cf-email">Email</label>
+                    <input id="cf-email" name="email" type="email" class="form-input" placeholder="ivanov@company.ru">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="cf-service">Услуга</label>
+                  <select id="cf-service" name="service" class="form-input">
+                    <option value="">— Выберите услугу —</option>
+                    <option>Обязательный аудит</option>
+                    <option>Инициативный аудит</option>
+                    <option>Бухгалтерское сопровождение</option>
+                    <option>Налоговое консультирование</option>
+                    <option>Восстановление учёта</option>
+                    <option>Юридические услуги</option>
+                    <option>Другое</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="cf-message">Сообщение</label>
+                  <textarea id="cf-message" name="message" class="form-input" placeholder="Кратко опишите ваш запрос"></textarea>
+                </div>
+                <div class="checkbox-group">
+                  <input id="cf-consent" type="checkbox" required>
+                  <label for="cf-consent">
+                    Я&nbsp;согласен на&nbsp;обработку <a href="privacy.html">персональных данных</a> в&nbsp;соответствии с&nbsp;152-ФЗ
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;">
+                  <i data-lucide="send"></i> Отправить заявку
+                </button>
+              </form>
+            </div>
+
+            <!-- Map placeholder -->
+            <div class="map-placeholder">
+              <div class="map-pin" aria-hidden="true"><i data-lucide="map-pin"></i></div>
+              <h3>Яндекс.Карты</h3>
+              <p>г. Красноярск, ул. Конституции СССР, 7</p>
+            </div>
+            <div class="map-route">
+              <i data-lucide="footprints" aria-hidden="true" style="color:var(--accent-gold);"></i>
+              <div><strong>Как&nbsp;добраться:</strong> остановка «Площадь Революции», 5 минут пешком.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="grid-4">
+        <div>
+          <a href="index.html" class="footer-logo">АУДИТ <span>ПЛЮС</span></a>
+          <p class="footer-tagline">Профессиональный аудит, бухгалтерия и&nbsp;налоговое консультирование в&nbsp;Красноярске с&nbsp;1995 года.</p>
+        </div>
+        <div>
+          <h4>Услуги</h4>
+          <ul>
+            <li><a href="index.html#services">Обязательный аудит</a></li>
+            <li><a href="index.html#services">Инициативный аудит</a></li>
+            <li><a href="index.html#services">Бухгалтерия</a></li>
+            <li><a href="index.html#services">Налоги</a></li>
+            <li><a href="index.html#services">Юридические услуги</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="index.html#about">О&nbsp;нас</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="tel:+79832689858">+7 (983) 268-98-58</a></li>
+            <li><a href="mailto:info@auditplyus.ru">info@auditplyus.ru</a></li>
+            <li>г. Красноярск,<br>ул. Конституции СССР, 7, оф.66</li>
+            <li>Пн–Пт 9:00–18:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 1995–2026 ООО «Аудит Плюс». Все&nbsp;права защищены.</div>
+        <div>ИНН 2463034272 · Член СРО ААС</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Уведомление об использовании cookie">
+    <div style="flex:1; min-width: 260px;">
+      Мы используем cookie, чтобы сайт работал лучше. Продолжая использовать сайт, вы соглашаетесь с
+      <a href="privacy.html">политикой конфиденциальности</a>.
+    </div>
+    <button class="btn btn-gold btn-sm" id="cookieAccept">Принять</button>
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Наверх">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    // Init icons
+    lucide.createIcons();
+
+    // Sticky header shadow
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 8);
+      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Back to top
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Mobile menu
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileToggle?.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', open);
+      mobileToggle.innerHTML = open ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
+      lucide.createIcons();
+    });
+
+    // Cookie banner
+    const banner = document.getElementById('cookieBanner');
+    if (localStorage.getItem('cookieAccepted') === '1') banner.style.display = 'none';
+    document.getElementById('cookieAccept').addEventListener('click', () => {
+      localStorage.setItem('cookieAccepted', '1');
+      banner.style.display = 'none';
+    });
+
+    // Form
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в течение рабочего дня.');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
