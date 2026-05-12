@@ -430,7 +430,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   content: '';
   position: absolute;
   inset: -20%;
-  background: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1920&q=80') center/cover;
+  background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80') center/cover;
   z-index: -2;
   transform: translateY(var(--parallax-y, 0));
   will-change: transform;
