@@ -102,6 +102,30 @@ h1, .display-serif {
   border-radius: 2px;
 }
 
+/* ---- Logo ---- */
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--primary);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+.logo span { color: var(--accent-gold); }
+.footer-logo,
+.site-footer .logo {
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.75rem;
+  letter-spacing: 0.04em;
+}
+.footer-logo span,
+.site-footer .logo span { color: var(--accent-gold-light); }
+
 /* ---- Skip Link (WCAG 2.4.1) ---- */
 .skip-link {
   position: absolute;
