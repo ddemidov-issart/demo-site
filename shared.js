@@ -31,23 +31,41 @@
   }
 
   function injectMobileMenu() {
+    let overlay = document.getElementById('menuOverlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'mobile-menu-overlay';
+      overlay.id = 'menuOverlay';
+      document.body.appendChild(overlay);
+    }
+
     let menu = document.getElementById('mobileMenu');
     if (!menu) {
       menu = document.createElement('nav');
       menu.className = 'mobile-menu';
       menu.id = 'mobileMenu';
-      menu.setAttribute('aria-label', 'Мобильное меню');
-      document.body.insertBefore(menu, document.body.firstChild.nextSibling?.nextSibling || null);
+      menu.setAttribute('aria-label', 'Меню навигации');
+      menu.setAttribute('role', 'dialog');
+      document.body.appendChild(menu);
     }
     menu.innerHTML = `
-      <a href="${base}index.html#services">Услуги</a>
-      <a href="${base}tariffs.html">Тарифы</a>
-      <a href="${base}index.html#about">О компании</a>
-      <a href="${base}info.html">Раскрытие информации</a>
-      <a href="${base}index.html#testimonials">Отзывы</a>
-      <a href="${base}index.html#contacts">Контакты</a>
-      <a href="tel:+79832689858">+7 (983) 268-98-58</a>
-      <a href="${base}index.html#contacts" class="btn btn-primary" style="margin-top: 16px;">Получить КП</a>
+      <div class="mobile-menu-header">
+        <span class="logo">Аудит <span>Плюс</span></span>
+        <button class="mobile-menu-close" id="menuClose" aria-label="Закрыть меню">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <a href="${base}index.html#services"><i data-lucide="briefcase"></i> Услуги</a>
+      <a href="${base}tariffs.html"><i data-lucide="calculator"></i> Тарифы</a>
+      <a href="${base}index.html#about"><i data-lucide="building-2"></i> О компании</a>
+      <a href="${base}info.html"><i data-lucide="file-text"></i> Раскрытие информации</a>
+      <a href="${base}index.html#testimonials"><i data-lucide="message-square-quote"></i> Отзывы</a>
+      <a href="${base}index.html#contacts"><i data-lucide="mail"></i> Контакты</a>
+      <div class="menu-divider"></div>
+      <a href="tel:+79832689858"><i data-lucide="phone"></i> +7 (983) 268-98-58</a>
+      <div class="menu-cta">
+        <a href="${base}index.html#contacts" class="btn btn-primary">Получить КП</a>
+      </div>
     `;
   }
 
@@ -106,22 +124,32 @@
   function initSharedUI() {
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    if (burger && mobileMenu) {
-      burger.addEventListener('click', () => {
-        const open = mobileMenu.classList.toggle('open');
-        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-        burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
-        document.body.style.overflow = open ? 'hidden' : '';
-      });
-      mobileMenu.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          mobileMenu.classList.remove('open');
-          burger.setAttribute('aria-expanded', 'false');
-          burger.setAttribute('aria-label', 'Открыть меню');
-          document.body.style.overflow = '';
-        });
-      });
+    const menuOverlay = document.getElementById('menuOverlay');
+    const menuClose = document.getElementById('menuClose');
+
+    function openMenu() {
+      mobileMenu?.classList.add('open');
+      menuOverlay?.classList.add('open');
+      burger?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
     }
+    function closeMenu() {
+      mobileMenu?.classList.remove('open');
+      menuOverlay?.classList.remove('open');
+      burger?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    burger?.addEventListener('click', openMenu);
+    menuClose?.addEventListener('click', closeMenu);
+    menuOverlay?.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu?.classList.contains('open')) closeMenu();
+    });
+
+    mobileMenu?.querySelectorAll('a:not(.btn)').forEach(a => {
+      a.addEventListener('click', closeMenu);
+    });
 
     const siteHeader = document.getElementById('siteHeader');
     const backToTop = document.getElementById('backToTop');
