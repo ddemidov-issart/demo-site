@@ -180,28 +180,24 @@
 <body>
   <a href="#main" class="skip-link">Перейти к&nbsp;содержимому</a>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="../index.html" class="logo" aria-label="Аудит Плюс — на главную">Аудит&nbsp;<span>Плюс</span></a>
-      <nav class="main-nav" aria-label="Главное меню">
-        <a href="../index.html#services" class="active">Услуги</a>
-        <a href="../tariffs.html">Тарифы</a>
-        <a href="../index.html#about">О&nbsp;компании</a>
-        <a href="../index.html#testimonials">Отзывы</a>
-        <a href="../index.html#contacts">Контакты</a>
-      </nav>
-      <div class="header-actions">
-        <a href="tel:+78001234567" class="header-phone"><i data-lucide="phone" class="icon"></i>8 (800) 123-45-67</a>
-        <a href="../index.html#contacts" class="btn btn-primary btn-sm">Консультация</a>
-        <button class="menu-toggle" aria-label="Открыть меню" id="menuToggle"><i data-lucide="menu" class="icon"></i></button>
-      </div>
-    </div>
-  </header>
-<h1>Обязательный и&nbsp;инициативный аудит</h1>
+  <!-- Header (shared.js) -->
+  <header class="site-header" id="siteHeader"></header>
+
+  <main id="main">
+    <section class="hero-compact">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <ol>
+            <li><a href="../index.html">Главная</a></li>
+            <li><a href="../index.html#services">Услуги</a></li>
+            <li><span aria-current="page">Аудит</span></li>
+          </ol>
+        </nav>
+        <h1>Обязательный и&nbsp;инициативный аудит</h1>
         <p class="lead">Профессиональная проверка финансовой отчётности по&nbsp;российским и&nbsp;международным стандартам. Аудиторское заключение, признаваемое банками, ФНС и&nbsp;инвесторами.</p>
       </div>
     </section>
+
 
     <!-- Для кого -->
     <section class="section-sm">
