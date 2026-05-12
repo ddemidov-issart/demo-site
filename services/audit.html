@@ -366,46 +366,7 @@
   <button class="back-to-top" id="backToTop" aria-label="Наверх"><i data-lucide="arrow-up" class="icon"></i></button>
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script>
-    // Lucide icons
-    if (window.lucide) lucide.createIcons();
-
-    // Mobile menu
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuToggle?.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      const isOpen = mobileMenu.classList.contains('open');
-      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    // FAQ
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isActive = item.classList.toggle('active');
-        btn.setAttribute('aria-expanded', String(isActive));
-      });
-    });
-
-    // Header scrolled state + back to top visibility
-    const header = document.querySelector('.site-header');
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 8);
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-    });
-    backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // Cookie banner
-    const cookieBanner = document.getElementById('cookieBanner');
-    if (localStorage.getItem('ap_cookie_ok')) cookieBanner.style.display = 'none';
-    document.getElementById('cookieAccept')?.addEventListener('click', () => {
-      localStorage.setItem('ap_cookie_ok', '1');
-      cookieBanner.style.display = 'none';
-    });
-  </script>
+  
   <script src="../shared.js" data-base="../"></script>
 </body>
 </html>

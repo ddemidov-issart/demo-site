@@ -499,47 +499,7 @@
 
   <!-- Lucide icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script>
-    // Init icons
-    lucide.createIcons();
-
-    // Sticky header shadow
-    const header = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 8);
-      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
-    });
-
-    // Back to top
-    document.getElementById('backToTop').addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Mobile menu
-    const mobileToggle = document.getElementById('mobileToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileToggle?.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      mobileToggle.setAttribute('aria-expanded', open);
-      mobileToggle.innerHTML = open ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
-      lucide.createIcons();
-    });
-
-    // Cookie banner
-    const banner = document.getElementById('cookieBanner');
-    if (localStorage.getItem('cookieAccepted') === '1') banner.style.display = 'none';
-    document.getElementById('cookieAccept').addEventListener('click', () => {
-      localStorage.setItem('cookieAccepted', '1');
-      banner.style.display = 'none';
-    });
-
-    // Form
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в течение рабочего дня.');
-      e.target.reset();
-    });
-  </script>
+  
   <script src="shared.js" data-base=""></script>
 </body>
 </html>

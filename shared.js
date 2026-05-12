@@ -1,7 +1,7 @@
-/* shared.js — единый header, footer, cookie, back-to-top для всех страниц */
-
 (function() {
   const base = document.currentScript?.getAttribute('data-base') || '';
+  const PHONE = '+79832689858';
+  const PHONE_FMT = '+7 (983) 268-98-58';
 
   function injectHeader() {
     const header = document.getElementById('siteHeader');
@@ -17,7 +17,7 @@
             <a href="${base}contacts.html">Контакты</a>
           </nav>
           <div class="nav-separator" aria-hidden="true"></div>
-          <a href="tel:+79832689858" class="header-phone" aria-label="Позвонить +7 983 268 98 58">
+          <a href="tel:${PHONE}" class="header-phone" aria-label="Позвонить +7 983 268 98 58">
             <i data-lucide="phone"></i>
             +7 (983) 268-98-58
           </a>
@@ -62,7 +62,7 @@
       <a href="${base}index.html#testimonials"><i data-lucide="message-square-quote"></i> Отзывы</a>
       <a href="${base}contacts.html"><i data-lucide="mail"></i> Контакты</a>
       <div class="menu-divider"></div>
-      <a href="tel:+79832689858"><i data-lucide="phone"></i> +7 (983) 268-98-58</a>
+      <a href="tel:${PHONE}"><i data-lucide="phone"></i> ${PHONE_FMT}</a>
     `;
   }
 
@@ -88,7 +88,7 @@
         <div>
           <h4>Контакты</h4>
           <ul>
-            <li><a href="tel:+79832689858">+7 (983) 268-98-58</a></li>
+            <li><a href="tel:${PHONE}">${PHONE_FMT}</a></li>
             <li><a href="mailto:info@auditplyus.ru">info@auditplyus.ru</a></li>
             <li>г. Красноярск, ул. Конституции СССР, 7, оф. 66</li>
             <li>Пн–Пт, 9:00–18:00</li>

@@ -702,52 +702,7 @@
 
   <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script>
-    // Initialize icons
-    if (window.lucide) lucide.createIcons();
-
-    // Header shadow on scroll
-    const header = document.getElementById('siteHeader');
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      header.classList.toggle('scrolled', y > 12);
-      backToTop.classList.toggle('visible', y > 480);
-    });
-
-    // Back to top
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Mobile menu
-    const toggle = document.getElementById('mobileToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    toggle.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    });
-
-    // Cookie banner
-    const cookieBanner = document.getElementById('cookieBanner');
-    const cookieKey = 'auditplyus_cookie_ok';
-    if (localStorage.getItem(cookieKey)) {
-      cookieBanner.style.display = 'none';
-    }
-    document.getElementById('cookieAccept').addEventListener('click', () => {
-      localStorage.setItem(cookieKey, '1');
-      cookieBanner.style.display = 'none';
-    });
-  </script>
+  
   <script src="shared.js" data-base=""></script>
 </body>
 </html>
