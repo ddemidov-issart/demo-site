@@ -867,6 +867,28 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   border-color: var(--accent-gold-light);
 }
 
+/* ---- Breadcrumbs ---- */
+.breadcrumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: var(--text-sm); color: var(--text-muted); margin-bottom: 20px; }
+.breadcrumbs a { color: var(--primary); text-decoration: none; font-weight: 500; }
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs [aria-current="page"] { color: var(--text-secondary); }
+.breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.breadcrumbs li { display: inline-flex; align-items: center; gap: 8px; }
+.breadcrumbs li + li::before { content: '/'; color: var(--text-muted); }
+
+/* ---- Page Hero ---- */
+.page-hero { background: var(--bg-light); padding: 48px 0 56px; border-bottom: 1px solid var(--border); }
+.page-hero h1 { font-size: var(--text-4xl); font-weight: 700; max-width: 820px; margin-bottom: 16px; }
+.page-hero .lead { font-size: var(--text-lg); color: var(--text-secondary); max-width: 720px; }
+@media (max-width: 768px) { .page-hero h1 { font-size: var(--text-3xl); } .page-hero { padding: 40px 0 32px; } }
+
+/* ---- Utility classes ---- */
+.bg-light { background: var(--bg-light); }
+.bg-blue { background: var(--bg-blue); }
+.btn-block { width: 100%; }
+.text-center { text-align: center; }
+.section-intro { margin-bottom: 40px; max-width: 720px; }
+
 /* ---- Print ---- */
 @media print {
   .site-header, .cookie-banner, .back-to-top, .mobile-menu { display: none !important; }

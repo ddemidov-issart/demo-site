@@ -24,25 +24,6 @@
       padding: 48px 0 56px;
       border-bottom: 1px solid var(--border);
     }
-    .breadcrumbs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      font-size: var(--text-sm);
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-    .breadcrumbs a {
-      color: var(--text-secondary);
-      text-decoration: none;
-    }
-    .breadcrumbs a:hover { color: var(--primary); }
-    .breadcrumbs [aria-current="page"] {
-      color: var(--graphite);
-      font-weight: 500;
-    }
-    .breadcrumbs .sep { color: var(--text-muted); }
     .info-hero h1 {
       font-size: var(--text-4xl);
       font-weight: 700;
@@ -802,78 +783,21 @@
   <footer class="site-footer" id="siteFooter"></footer>
 
   <!-- Cookie banner -->
-  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Уведомление о файлах cookie">
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Уведомление о файлах cookie">
     <span>
       Мы используем файлы cookie для&nbsp;улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с
-      <a href="#">политикой обработки данных</a>.
+      <a href="privacy.html">политикой обработки данных</a>.
     </span>
-    <button class="btn btn-primary btn-sm" id="cookie-accept" type="button">Принять</button>
+    <button class="btn btn-primary btn-sm" id="cookieAccept" type="button">Принять</button>
   </div>
 
   <!-- Back to top -->
-  <button class="back-to-top" id="back-to-top" type="button" aria-label="Наверх">
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Наверх">
     <i data-lucide="arrow-up" aria-hidden="true"></i>
   </button>
 
   <!-- Lucide icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script>
-    (function () {
-      // Init icons
-      if (window.lucide && typeof window.lucide.createIcons === 'function') {
-        window.lucide.createIcons();
-      }
-
-      // Sticky header shadow on scroll
-      var header = document.getElementById('site-header');
-      var backTop = document.getElementById('back-to-top');
-      window.addEventListener('scroll', function () {
-        var y = window.scrollY || window.pageYOffset;
-        if (header) header.classList.toggle('scrolled', y > 8);
-        if (backTop) backTop.classList.toggle('visible', y > 480);
-      }, { passive: true });
-
-      // Mobile menu toggle
-      var toggle = document.getElementById('menu-toggle');
-      var menu = document.getElementById('mobile-menu');
-      if (toggle && menu) {
-        toggle.addEventListener('click', function () {
-          var open = menu.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', String(open));
-          toggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
-        });
-        // Close mobile menu when a link is clicked
-        menu.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', function () {
-            menu.classList.remove('open');
-            toggle.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-
-      // Back to top
-      if (backTop) {
-        backTop.addEventListener('click', function () {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-
-      // Cookie banner
-      var banner = document.getElementById('cookie-banner');
-      var accept = document.getElementById('cookie-accept');
-      try {
-        if (banner && localStorage.getItem('auditplyus_cookie_ok') === '1') {
-          banner.style.display = 'none';
-        }
-      } catch (e) { /* localStorage unavailable */ }
-      if (accept && banner) {
-        accept.addEventListener('click', function () {
-          banner.style.display = 'none';
-          try { localStorage.setItem('auditplyus_cookie_ok', '1'); } catch (e) {}
-        });
-      }
-    })();
-  </script>
   <script src="shared.js" data-base=""></script>
 </body>
 </html>

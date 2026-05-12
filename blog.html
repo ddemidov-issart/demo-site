@@ -10,16 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .breadcrumbs {
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-      padding: 16px 0;
-    }
-    .breadcrumbs a { color: var(--primary); text-decoration: none; }
-    .breadcrumbs a:hover { text-decoration: underline; }
-    .breadcrumbs span[aria-current] { color: var(--text-muted); }
-    .breadcrumbs .sep { margin: 0 8px; color: var(--text-muted); }
-
     .page-hero {
       background: var(--bg-light);
       padding: 48px 0 56px;
@@ -464,35 +454,6 @@
   </button>
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script>
-    lucide.createIcons();
-
-    const header = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 8);
-      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
-    });
-
-    document.getElementById('backToTop').addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    const mobileToggle = document.getElementById('mobileToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileToggle?.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      mobileToggle.setAttribute('aria-expanded', open);
-      mobileToggle.innerHTML = open ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
-      lucide.createIcons();
-    });
-
-    const banner = document.getElementById('cookieBanner');
-    if (localStorage.getItem('cookieAccepted') === '1') banner.style.display = 'none';
-    document.getElementById('cookieAccept').addEventListener('click', () => {
-      localStorage.setItem('cookieAccepted', '1');
-      banner.style.display = 'none';
-    });
-  </script>
   <script src="shared.js" data-base=""></script>
 </body>
 </html>

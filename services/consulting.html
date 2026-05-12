@@ -10,14 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
   <style>
-    .breadcrumbs { font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: 24px; }
-    .breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-    .breadcrumbs li { display: inline-flex; align-items: center; gap: 8px; }
-    .breadcrumbs li + li::before { content: '/'; color: var(--text-muted); }
-    .breadcrumbs a { color: var(--primary); text-decoration: none; }
-    .breadcrumbs a:hover { text-decoration: underline; }
-    .breadcrumbs [aria-current="page"] { color: var(--text-muted); }
-
     .hero-compact { background: var(--bg-blue); padding: 56px 0 72px; }
     .hero-compact h1 { font-size: var(--text-4xl); font-weight: 700; margin-bottom: 16px; max-width: 820px; }
     .hero-compact .lead { font-size: var(--text-lg); color: var(--text-secondary); max-width: 720px; }
@@ -157,32 +149,7 @@
 <body>
   <a href="#main" class="skip-link">Перейти к&nbsp;содержимому</a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="../index.html" class="logo" aria-label="Аудит Плюс — на главную">Аудит&nbsp;<span>Плюс</span></a>
-      <nav class="main-nav" aria-label="Главное меню">
-        <a href="../index.html#services" class="active">Услуги</a>
-        <a href="../tariffs.html">Тарифы</a>
-        <a href="../index.html#about">О&nbsp;компании</a>
-        <a href="../index.html#testimonials">Отзывы</a>
-        <a href="../index.html#contacts">Контакты</a>
-      </nav>
-      <div class="header-actions">
-        <a href="tel:+78001234567" class="header-phone"><i data-lucide="phone" class="icon"></i>8 (800) 123-45-67</a>
-        <a href="../index.html#contacts" class="btn btn-primary btn-sm">Консультация</a>
-        <button class="menu-toggle" aria-label="Открыть меню" id="menuToggle"><i data-lucide="menu" class="icon"></i></button>
-      </div>
-    </div>
-  </header>
-
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="../index.html#services">Услуги</a>
-    <a href="../tariffs.html">Тарифы</a>
-    <a href="../index.html#about">О&nbsp;компании</a>
-    <a href="../index.html#testimonials">Отзывы</a>
-    <a href="../index.html#contacts">Контакты</a>
-    <a href="tel:+78001234567">8 (800) 123-45-67</a>
-  </div>
+  <header class="site-header" id="siteHeader"></header>
 
   <main id="main">
     <!-- Hero -->
@@ -359,30 +326,6 @@
   <button class="back-to-top" id="backToTop" aria-label="Наверх"><i data-lucide="arrow-up" class="icon"></i></button>
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script>
-    if (window.lucide) lucide.createIcons();
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuToggle?.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      const isOpen = mobileMenu.classList.contains('open');
-      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-    const header = document.querySelector('.site-header');
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 8);
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-    });
-    backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    const cookieBanner = document.getElementById('cookieBanner');
-    if (localStorage.getItem('ap_cookie_ok')) cookieBanner.style.display = 'none';
-    document.getElementById('cookieAccept')?.addEventListener('click', () => {
-      localStorage.setItem('ap_cookie_ok', '1');
-      cookieBanner.style.display = 'none';
-    });
-  </script>
   <script src="../shared.js" data-base="../"></script>
 </body>
 </html>

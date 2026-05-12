@@ -1218,9 +1218,6 @@
   <!-- Lucide icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script>
-    // Initialize Lucide icons
-    if (window.lucide) lucide.createIcons();
-
     // ---- Scroll reveal (sections + stagger grids) ----
     const revealEls = document.querySelectorAll('.reveal, .stagger-grid');
     const revealObserver = new IntersectionObserver((entries) => {
@@ -1386,48 +1383,6 @@
       });
     });
 
-    // ---- Cookie banner ----
-    const cookieBanner = document.getElementById('cookieBanner');
-    const cookieAccept = document.getElementById('cookieAccept');
-    try {
-      if (localStorage.getItem('cookieAccepted') === '1') {
-        cookieBanner.classList.add('hidden');
-      }
-    } catch (e) {}
-    cookieAccept.addEventListener('click', () => {
-      cookieBanner.classList.add('hidden');
-      try { localStorage.setItem('cookieAccepted', '1'); } catch (e) {}
-    });
-
-    // ---- Back to top ----
-    const backToTop = document.getElementById('backToTop');
-    const siteHeader = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      backToTop.classList.toggle('visible', y > 300);
-      siteHeader.classList.toggle('scrolled', y > 8);
-    }, { passive: true });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // ---- Mobile menu ----
-    const burger = document.getElementById('burgerBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    burger.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-        burger.setAttribute('aria-label', 'Открыть меню');
-        document.body.style.overflow = '';
-      });
-    });
   </script>
   <script src="shared.js" data-base=""></script>
 </body>
