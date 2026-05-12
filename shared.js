@@ -79,10 +79,11 @@
         <div>
           <h4>Услуги</h4>
           <ul>
-            <li><a href="${base}index.html#services">Аудиторские услуги</a></li>
-            <li><a href="${base}index.html#services">Бухгалтерское сопровождение</a></li>
-            <li><a href="${base}index.html#services">Налоговый консалтинг</a></li>
+            <li><a href="${base}services/audit.html">Аудиторские услуги</a></li>
+            <li><a href="${base}services/accounting.html">Бухгалтерское сопровождение</a></li>
+            <li><a href="${base}services/consulting.html">Консалтинг</a></li>
             <li><a href="${base}tariffs.html">Тарифы</a></li>
+            <li><a href="${base}blog.html">Блог</a></li>
           </ul>
         </div>
         <div>
