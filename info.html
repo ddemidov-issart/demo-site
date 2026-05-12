@@ -16,60 +16,7 @@
 
   <!-- Page-specific styles -->
   <style>
-    /* ---- Header (consistent with index) ---- */
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-      gap: 24px;
-    }
-    .logo {
-      font-family: var(--font-heading);
-      font-size: var(--text-2xl);
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
-    .logo span { color: var(--accent-gold); }
-    .nav-desktop {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-    .nav-desktop a {
-      color: var(--graphite);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: var(--text-base);
-      transition: color var(--transition-fast);
-    }
-    .nav-desktop a:hover { color: var(--primary); }
-    .header-cta {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .header-phone {
-      color: var(--graphite);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: var(--text-sm);
-    }
-    .header-phone:hover { color: var(--primary); }
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      color: var(--graphite);
-    }
-    @media (max-width: 1024px) {
-      .nav-desktop, .header-phone { display: none; }
-      .menu-toggle { display: inline-flex; }
-    }
+    /* Header/nav/logo styles now in styles.css + shared.js */
 
     /* ---- Hero (compact) ---- */
     .info-hero {
@@ -499,30 +446,8 @@
   <!-- Skip link -->
   <a href="#main-content" class="skip-link">Перейти к&nbsp;основному содержимому</a>
 
-  <!-- ============ Header ============ -->
-  <header class="site-header" id="site-header">
-    <div class="container">
-      <div class="header-inner">
-        <a href="index.html" class="logo" aria-label="Аудит Плюс — на главную">Аудит&nbsp;<span>Плюс</span></a>
-
-        <nav class="nav-desktop" aria-label="Главное меню">
-          <a href="index.html#services">Услуги</a>
-          <a href="tariffs.html">Тарифы</a>
-          <a href="index.html#about">О&nbsp;компании</a>
-          <a href="index.html#testimonials">Отзывы</a>
-          <a href="index.html#contacts">Контакты</a>
-        </nav>
-
-        <div class="header-cta">
-          <a href="tel:+79832689858" class="header-phone">+7 (983) 268-98-58</a>
-          <a href="index.html#contacts" class="btn btn-primary btn-sm">Получить КП</a>
-          <button class="menu-toggle" id="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
-            <i data-lucide="menu" aria-hidden="true"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- Header (injected by shared.js) -->
+  <header class="site-header" id="siteHeader"></header>
 <main id="main-content">
 
     <!-- ============ Hero ============ -->
