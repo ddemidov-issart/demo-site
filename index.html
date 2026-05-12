@@ -1042,6 +1042,7 @@
           <p class="section-subtitle">Отзывы финансовых директоров и&nbsp;собственников бизнеса Красноярска</p>
         </div>
 
+        <div class="testimonial-carousel">
         <div class="testimonial-track" role="list">
           <article class="testimonial" role="listitem">
             <div class="stars" aria-label="Оценка 5 из 5">★★★★★</div>
@@ -1102,6 +1103,8 @@
               </div>
             </div>
           </article>
+        </div>
+        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Переключение отзывов"></div>
         </div>
       </div>
     </section>
@@ -1461,20 +1464,68 @@
     lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
-    // ---- Testimonial drag scroll ----
-    const track = document.querySelector('.testimonial-track');
-    if (track) {
-      let isDown = false, startX, scrollLeft;
-      track.addEventListener('mousedown', (e) => {
-        isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft;
-      });
-      track.addEventListener('mouseleave', () => { isDown = false; });
-      track.addEventListener('mouseup', () => { isDown = false; });
-      track.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - track.offsetLeft;
-        track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    // ---- Testimonial auto-rotate carousel ----
+    const carousel = document.querySelector('.testimonial-carousel');
+    const cTrack = document.querySelector('.testimonial-track');
+    const dotsContainer = document.getElementById('carouselDots');
+    if (carousel && cTrack && dotsContainer) {
+      const slides = cTrack.children;
+      const total = slides.length;
+      let currentPage = 0;
+      let autoTimer = null;
+
+      function getPerPage() {
+        if (window.innerWidth <= 640) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+      }
+
+      function getTotalPages() {
+        return Math.max(1, total - getPerPage() + 1);
+      }
+
+      function buildDots() {
+        dotsContainer.innerHTML = '';
+        const pages = getTotalPages();
+        for (let i = 0; i < pages; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === currentPage ? ' active' : '');
+          dot.setAttribute('aria-label', 'Отзыв ' + (i + 1));
+          dot.addEventListener('click', () => goTo(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function goTo(page) {
+        const pages = getTotalPages();
+        currentPage = ((page % pages) + pages) % pages;
+        const perPage = getPerPage();
+        const slideWidth = 100 / perPage;
+        cTrack.style.transform = 'translateX(-' + (currentPage * slideWidth) + '%)';
+        dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === currentPage);
+        });
+      }
+
+      function next() { goTo(currentPage + 1); }
+
+      function startAuto() {
+        stopAuto();
+        autoTimer = setInterval(next, 4000);
+      }
+      function stopAuto() {
+        if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+      }
+
+      carousel.addEventListener('mouseenter', stopAuto);
+      carousel.addEventListener('mouseleave', startAuto);
+
+      buildDots();
+      startAuto();
+
+      window.addEventListener('resize', () => {
+        buildDots();
+        goTo(Math.min(currentPage, getTotalPages() - 1));
       });
     }
 
