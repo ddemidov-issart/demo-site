@@ -63,9 +63,6 @@
       <a href="${base}index.html#contacts"><i data-lucide="mail"></i> Контакты</a>
       <div class="menu-divider"></div>
       <a href="tel:+79832689858"><i data-lucide="phone"></i> +7 (983) 268-98-58</a>
-      <div class="menu-cta">
-        <a href="${base}index.html#contacts" class="btn btn-primary">Получить КП</a>
-      </div>
     `;
   }
 
