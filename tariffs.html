@@ -486,54 +486,8 @@
   <a href="#main" class="skip-link">Перейти к&nbsp;основному контенту</a>
 
   <!-- ========== HEADER ========== -->
-  <header class="site-header" id="siteHeader">
-    <div class="container">
-      <div class="header-inner">
-        <a href="index.html" class="logo" aria-label="Аудит Плюс — на главную">Аудит&nbsp;<span>Плюс</span></a>
-
-        <nav class="main-nav" aria-label="Основная навигация">
-          <a href="index.html#services">Услуги</a>
-          <a href="tariffs.html" class="active" aria-current="page">Тарифы</a>
-          <a href="index.html#about">О&nbsp;компании</a>
-          <a href="index.html#testimonials">Отзывы</a>
-          <a href="index.html#contacts">Контакты</a>
-        </nav>
-
-        <div class="header-cta">
-          <a href="tel:+78002000000" class="header-phone">
-            <i data-lucide="phone" width="16" height="16"></i>
-            8 (800) 200-00-00
-          </a>
-          <a href="index.html#contacts" class="btn btn-primary btn-sm">Получить КП</a>
-          <button class="mobile-toggle" id="mobileToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
-            <i data-lucide="menu" width="24" height="24"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Mobile menu -->
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Меню">
-    <a href="index.html#services">Услуги</a>
-    <a href="tariffs.html" class="active">Тарифы</a>
-    <a href="index.html#about">О&nbsp;компании</a>
-    <a href="index.html#testimonials">Отзывы</a>
-    <a href="index.html#contacts">Контакты</a>
-    <a href="tel:+78002000000">8 (800) 200-00-00</a>
-    <a href="index.html#contacts" class="btn btn-primary" style="margin-top:16px;">Получить КП</a>
-  </div>
-
-  <main id="main">
-    <!-- ========== HERO ========== -->
-    <section class="tariffs-hero">
-      <div class="container">
-        <nav class="breadcrumbs" aria-label="Хлебные крошки">
-          <a href="index.html">Главная</a>
-          <span class="sep" aria-hidden="true">/</span>
-          <span aria-current="page">Тарифы</span>
-        </nav>
-        <h1>Тарифы на&nbsp;бухгалтерское сопровождение</h1>
+  <header class="site-header" id="siteHeader"></header>
+<h1>Тарифы на&nbsp;бухгалтерское сопровождение</h1>
         <p class="lead">Прозрачные цены. Фиксированная стоимость. Никаких скрытых платежей.</p>
       </div>
     </section>
@@ -723,44 +677,7 @@
   </main>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col footer-brand">
-          <a href="index.html" class="logo" aria-label="Аудит Плюс — на главную">Аудит&nbsp;<span>Плюс</span></a>
-          <p>Аудиторская и&nbsp;бухгалтерская компания. Прозрачное сопровождение бизнеса с&nbsp;2008&nbsp;года.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Компания</h4>
-          <ul>
-            <li><a href="index.html#about">О&nbsp;нас</a></li>
-            <li><a href="index.html#testimonials">Отзывы</a></li>
-            <li><a href="index.html#contacts">Контакты</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Услуги</h4>
-          <ul>
-            <li><a href="index.html#services">Бухучёт</a></li>
-            <li><a href="tariffs.html">Тарифы</a></li>
-            <li><a href="index.html#services">Аудит</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Контакты</h4>
-          <ul>
-            <li><a href="tel:+78002000000">8 (800) 200-00-00</a></li>
-            <li><a href="mailto:info@auditplyus.ru">info@auditplyus.ru</a></li>
-            <li>г.&nbsp;Москва, ул.&nbsp;Тверская, 10</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>©&nbsp;2008–2026 ООО&nbsp;«Аудит Плюс». Все&nbsp;права защищены.</span>
-        <a href="index.html#contacts">Политика конфиденциальности</a>
-      </div>
-    </div>
-  </footer>
+  <footer class="site-footer" id="siteFooter"></footer>
 
   <!-- Cookie banner -->
   <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Уведомление об использовании cookie">
@@ -821,5 +738,6 @@
       cookieBanner.style.display = 'none';
     });
   </script>
+  <script src="shared.js" data-base=""></script>
 </body>
 </html>

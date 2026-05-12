@@ -301,27 +301,7 @@
 <body>
   <a href="#main" class="skip-link">Перейти к&nbsp;основному содержанию</a>
 
-  <header class="site-header" id="siteHeader">
-    <div class="container">
-      <div class="nav-wrap">
-        <a href="index.html" class="logo" aria-label="Аудит Плюс — на главную">Аудит&nbsp;<span>Плюс</span></a>
-        <nav class="main-nav" aria-label="Главная навигация">
-          <a href="index.html">Главная</a>
-          <a href="index.html#about">О&nbsp;компании</a>
-          <a href="index.html#services">Услуги</a>
-          <a href="blog.html" class="active">Блог</a>
-          <a href="contacts.html">Контакты</a>
-        </nav>
-        <div class="header-cta">
-          <a href="tel:+79832689858" class="header-phone">+7 (983) 268-98-58</a>
-          <a href="contacts.html#consult" class="btn btn-primary btn-sm">Консультация</a>
-          <button class="mobile-toggle" id="mobileToggle" aria-label="Открыть меню" aria-controls="mobileMenu" aria-expanded="false">
-            <i data-lucide="menu"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
+  <header class="site-header" id="siteHeader"></header>
 
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Мобильное меню">
     <a href="index.html">Главная</a>
@@ -469,48 +449,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="grid-4">
-        <div>
-          <a href="index.html" class="footer-logo">Аудит&nbsp;<span>Плюс</span></a>
-          <p class="footer-tagline">Профессиональный аудит, бухгалтерия и&nbsp;налоговое консультирование в&nbsp;Красноярске с&nbsp;1995&nbsp;года.</p>
-        </div>
-        <div>
-          <h4>Услуги</h4>
-          <ul>
-            <li><a href="index.html#services">Обязательный аудит</a></li>
-            <li><a href="index.html#services">Инициативный аудит</a></li>
-            <li><a href="index.html#services">Бухгалтерия</a></li>
-            <li><a href="index.html#services">Налоги</a></li>
-            <li><a href="index.html#services">Юридические услуги</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Компания</h4>
-          <ul>
-            <li><a href="index.html#about">О&nbsp;нас</a></li>
-            <li><a href="blog.html">Блог</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-            <li><a href="privacy.html">Политика конфиденциальности</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Контакты</h4>
-          <ul>
-            <li><a href="tel:+79832689858">+7 (983) 268-98-58</a></li>
-            <li><a href="mailto:info@auditplyus.ru">info@auditplyus.ru</a></li>
-            <li>г.&nbsp;Красноярск,<br>ул.&nbsp;Конституции СССР, 7, оф.66</li>
-            <li>Пн–Пт 9:00–18:00</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div>©&nbsp;1995–2026 ООО&nbsp;«Аудит Плюс». Все&nbsp;права защищены.</div>
-        <div>ИНН&nbsp;2463034272 · Член СРО&nbsp;ААС</div>
-      </div>
-    </div>
-  </footer>
+  <footer class="site-footer" id="siteFooter"></footer>
 
   <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Уведомление об использовании cookie">
     <div style="flex:1; min-width: 260px;">
@@ -554,5 +493,6 @@
       banner.style.display = 'none';
     });
   </script>
+  <script src="shared.js" data-base=""></script>
 </body>
 </html>
