@@ -14,14 +14,14 @@
           <nav class="nav-compact" aria-label="Быстрая навигация">
             <a href="${base}index.html#services">Услуги</a>
             <a href="${base}tariffs.html">Тарифы</a>
-            <a href="${base}index.html#contacts">Контакты</a>
+            <a href="${base}contacts.html">Контакты</a>
           </nav>
           <div class="nav-separator" aria-hidden="true"></div>
           <a href="tel:+79832689858" class="header-phone" aria-label="Позвонить +7 983 268 98 58">
             <i data-lucide="phone"></i>
             +7 (983) 268-98-58
           </a>
-          <a href="${base}index.html#contacts" class="btn btn-primary btn-sm btn-magnetic">Получить КП</a>
+          <a href="${base}contacts.html" class="btn btn-primary btn-sm btn-magnetic">Получить КП</a>
           <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
             <i data-lucide="menu"></i>
           </button>
@@ -60,7 +60,7 @@
       <a href="${base}index.html#about"><i data-lucide="building-2"></i> О компании</a>
       <a href="${base}info.html"><i data-lucide="file-text"></i> Раскрытие информации</a>
       <a href="${base}index.html#testimonials"><i data-lucide="message-square-quote"></i> Отзывы</a>
-      <a href="${base}index.html#contacts"><i data-lucide="mail"></i> Контакты</a>
+      <a href="${base}contacts.html"><i data-lucide="mail"></i> Контакты</a>
       <div class="menu-divider"></div>
       <a href="tel:+79832689858"><i data-lucide="phone"></i> +7 (983) 268-98-58</a>
     `;
