@@ -648,8 +648,8 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   margin-top: 32px;
 }
 .carousel-dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: var(--radius-full);
   background: var(--border);
   border: none;
@@ -659,7 +659,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 }
 .carousel-dot.active {
   background: var(--accent-gold);
-  width: 28px;
+  width: 32px;
 }
 .carousel-dot:hover {
   background: var(--primary-light);
